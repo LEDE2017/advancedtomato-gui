@@ -41,7 +41,7 @@ No part of this file may be used without permission.
 					if ((!v_length(user, quiet, 1)) || (!v_length(pass, quiet, 1))) return 0;
 					unc.value = unc.value.replace(/\//g, '\\');
 					if (!unc.value.match(/^\\\\.+\\/)) {
-						ferror.set(unc, '错误的共享路径', quiet);
+						ferror.set(unc, '错误的共享路径(UNC)', quiet);
 						return 0;
 					}
 				}
@@ -93,9 +93,9 @@ No part of this file may be used without permission.
 				createFormFields([
 					{ title: '启用', indent: 2, name: 'f_cifs1_enable', type: 'checkbox', value: a[0]*1 },
 					{ title: '共享路径(UNC)', indent: 2, name: 'f_cifs1_unc', type: 'text', maxlen: 128, size: 48, value: a[1] },
-					{ title: '计算机名', indent: 2, name: 'f_cifs1_servern', type: 'text', maxlen: 128, size: 48, value: a[6] },
-					{ title: '用户名称', indent: 2, name: 'f_cifs1_user', type: 'text', maxlen: 32, size: 34, value: a[2] },
-					{ title: '请输入密码', indent: 2, name: 'f_cifs1_pass', type: 'password', maxlen: 32, size: 34, peekaboo: 1, value: a[3] },
+					{ title: '计算机名(Netbios)', indent: 2, name: 'f_cifs1_servern', type: 'text', maxlen: 128, size: 48, value: a[6] },
+					{ title: '用户名', indent: 2, name: 'f_cifs1_user', type: 'text', maxlen: 32, size: 34, value: a[2] },
+					{ title: '密码', indent: 2, name: 'f_cifs1_pass', type: 'password', maxlen: 32, size: 34, peekaboo: 1, value: a[3] },
 					{ title: '所在域', indent: 2, name: 'f_cifs1_dom', type: 'text', maxlen: 32, size: 34, value: a[4] },
 					{ title: '挂载后执行', indent: 2, name: 'f_cifs1_exec', type: 'text', maxlen: 64, size: 34, value: a[5] },
 					{ title: '安全设置', indent: 2, name: 'f_cifs1_sec', type: 'select',

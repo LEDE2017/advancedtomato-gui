@@ -8,7 +8,7 @@ No part of this file may be used without permission.
 <content>
 	<script type="text/javascript">
 		//	<% nvram("tomatoanon_enable,tomatoanon_answer,tomatoanon_id"); %>
-		$('.anonlink').append('<a title="检查我的路由器" class="pull-right" href="http://anon.groov.pl/?search=9&routerid=<% nv('tomatoanon_id'); %>" target="_blank"><i class="icon-forward"></i></a>');
+		$('.anonlink').append('<a title="查看我的路由器" class="pull-right" href="http://anon.groov.pl/?search=9&routerid=<% nv('tomatoanon_id'); %>" target="_blank"><i class="icon-forward"></i></a>');
 		function verifyFields(focused, quiet)
 		{
 			var o = (E('_tomatoanon_answer').value == '1');
@@ -49,7 +49,7 @@ No part of this file may be used without permission.
 					TomatoAnon 脚本是完全开放的，并且用 bash 编写。 每个人都可以自由地查看所收集并传输到数据库的信息..
 				</p>
 
-				<p>收集的数据可以这查看 <a href="http://anon.groov.pl/" target="_blank"><b>TomatoAnon 统计</b></a> 页面.<br>
+				<p>收集的数据可以在 <a href="http://anon.groov.pl/" target="_blank"><b>TomatoAnon 统计</b></a> 页面查看.<br>
 					这些信息可以帮助您选择您所在国家或地区可用的最佳和最受欢迎的路由器.
 					您可以在此找到每个路由器最常用和最稳定的 Tomato 版本.
 					如果您不希望提供数据或对正在收集的数据不舒服的情况下，可以禁用 TomatoAnon 脚本..
@@ -82,14 +82,6 @@ No part of this file may be used without permission.
 					您的 Web 浏览器将跟随链接跳转，并且 AdvancedTomato 服务器发送一个响应，指示是否有较新的版本可用.<br>
 					仅此而已!
 				</p><br />
-
-				<h5>AdvancedTomato 固件汉化说明</h5>
-				<p>
-					<li>AdvancedTomato 固件由网友 ZhangSir 独立汉化。</li>			
-					<li>转发与转载请保留汉化作者信息，请勿打击作者积极性。</li>
-					<li>汉化作者博客地址 <b><a target="_blank" href="https://www.getlinux.cn">GetLinux.cn</a></b></li>
-					<li>汉化项目 GitHub 链接：<b><a target="_blank" href="https://github.com/Zhang-Sir/advancedtomato-gui-Chinese-localization">https://github.com/Zhang-Sir/advancedtomato-gui-Chinese-localization</a></b></li>
-				</p>
 			</div>
 		</div>
 
@@ -98,7 +90,7 @@ No part of this file may be used without permission.
 			<div class="content"></div>
 			<script type="text/javascript">
 				$('.box.anon .content').forms([
-					{ title: '你明白什么 TomatoAnon 吗?', name: 'tomatoanon_answer', type: 'select', options: [ ['0','不, 我不清楚. 我需要阅读上述信息并作出明智的决定.'], ['1','是的, 我已了解并作出决定.'] ], value: nvram.tomatoanon_answer, suffix: ' '},
+					{ title: '你了解 TomatoAnon 功能了吗?', name: 'tomatoanon_answer', type: 'select', options: [ ['0','不, 我不清楚. 我需要阅读上述信息并作出明智的决定.'], ['1','是的, 我已了解并作出决定.'] ], value: nvram.tomatoanon_answer, suffix: ' '},
 					{ title: '是否要启用 TomatoAnon ?', name: 'tomatoanon_enable', type: 'select', options: [ ['-1','我现在不确定.'], ['1','是的, 我确定启用它.'], ['0','不, 我不想启用它.'] ], value: nvram.tomatoanon_enable, suffix: ' '}
 				]);
 			</script>

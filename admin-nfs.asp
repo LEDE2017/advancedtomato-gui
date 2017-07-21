@@ -101,7 +101,7 @@ No part of this file may be used without permission.
 				<h4>说明</h4>
 				<ul>
 					<li>您可以在以下网站找到有关正确配置 NFS 的更多信息: <a href="http://nfs.sourceforge.net/nfs-howto/" target="_blanc"><b>http://nfs.sourceforge.net</b></a>.
-					<li>如果要从其他 NFS 服务器装载 NFS 共享，可以通过 telnet / ssh 使用 mount.nfs 工具。
+					<li>如果要从其他 NFS 服务器挂载 NFS 共享，可以通过 telnet / ssh 使用 mount.nfs 工具。
 				</ul>
 			</div>
 		</div>

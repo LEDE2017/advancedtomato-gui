@@ -134,11 +134,11 @@ No part of this file may be used without permission.
 				path = getPath();
 				if (((E('_rstats_stime').value * 1) <= 48) &&
 					((path == '*nvram') || (path == '/jffs/'))) {
-					if (!confirm('不建议对 NVRAM 或 JFFS2 频繁的存取，是否继续?')) return;
+					if (!confirm('不建议对 NVRAM 或 JFFS2 进行频繁的存取，是否继续?')) return;
 				}
 				if ((nvram.rstats_path != path) && (fom.rstats_path.value != path) && (path != '') && (path != '*nvram') &&
 					(path.substr(path.length - 1, 1) != '/')) {
-					if (!confirm('注意: ' + path + ' 将会被视为一个文件. 如果这是一个目录，请使用 /. 是否继续?')) return;
+					if (!confirm('注意: ' + path + ' 将会被视为一个文件. 如果这是一个目录，请使用 / 作为路径结尾. 是否继续?')) return;
 				}
 				fom.rstats_path.value = path;
 
@@ -199,7 +199,7 @@ No part of this file may be used without permission.
 				$('#_fom').forms([
 					{ title: '启用', name: 'f_rstats_enable', type: 'checkbox', value: nvram.rstats_enable == '1' },
 					{ title: '历史数据保存位置', multi: [
-						{ name: 'f_loc', type: 'select', options: [['','RAM (临时的)'],['*nvram','NVRAM'],
+						{ name: 'f_loc', type: 'select', options: [['','RAM (临时)'],['*nvram','NVRAM'],
 							/* JFFS2-BEGIN */
 							['/jffs/','JFFS2'],
 							/* JFFS2-END */
@@ -217,7 +217,7 @@ No part of this file may be used without permission.
 					{ title: '创建新文件<br><small>(清除数据)</small>', indent: 2, name: 'f_new', type: 'checkbox', value: 0,
 						suffix: ' &nbsp;<small id="newmsg" style="visibility:hidden">注意：如果这是一个新文件，则启用之</small>' },
 					{ title: '创建备份', indent: 2, name: 'f_bak', type: 'checkbox', value: nvram.rstats_bak == '1' },
-					{ title: '每月第一天为', name: 'rstats_offset', type: 'text', value: nvram.rstats_offset, maxlen: 2, size: 4 },
+					{ title: '每月第一天', name: 'rstats_offset', type: 'text', value: nvram.rstats_offset, maxlen: 2, size: 4 },
 					{ title: '排除的接口', name: 'rstats_exclude', type: 'text', value: nvram.rstats_exclude, maxlen: 64, size: 50, suffix: '<small>(多个请用逗号分隔)</small>' }
 					], { align: 'left' });
 			</script>

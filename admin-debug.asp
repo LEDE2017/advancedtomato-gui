@@ -58,8 +58,8 @@ No part of this file may be used without permission.
 		<input type="hidden" name="t_hidelr">
 
 		<div class="alert alert-warning icon">
-			<h5>警告!</h5> NVRAM 导出配置文本文件中，可能包含此路由器 无线加密秘钥 和 用户名/密码，ISP 和 DDNS。请
-			检查 &amp; 并编辑此文件后再共享于其他人。
+			<h5>警告!</h5> NVRAM 导出的配置文本文件中，可能包含此路由器 无线加密秘钥 和 用户名/密码，ISP 和 DDNS。请
+			检查 &amp; 并编辑此文件后再共享给其他人。
 		</div>
 
 		<div class="box">
@@ -91,7 +91,7 @@ No part of this file may be used without permission.
 				<hr>
 
 				&raquo; <a href="#clear-cookies.asp">清除 Cookies</a><br>
-				&raquo; <a href="javascript:nvramCommit()">NVRAM 提交</a><br>
+				&raquo; <a href="javascript:nvramCommit()">保存更改到 NVRAM </a><br>
 				<br>
 
 				&raquo; <a href="/cfe/cfe.bin?_http_id=<% nv(http_id); %>">下载 CFE</a><br>

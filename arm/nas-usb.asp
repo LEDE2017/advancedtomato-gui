@@ -4,7 +4,7 @@ USB Support - !!TB
 
 For use with Tomato Firmware only.
 No part of this file may be used without permission.
---><title>USB 基本设置</title>
+--><title>USB 设置</title>
 <content>
 	<style>textarea { width: 100%; }</style>
 	<script type="text/javascript">
@@ -73,7 +73,7 @@ No part of this file may be used without permission.
 				eval( text );
 				if ( usb.length == 1 ) {
 					if ( usb[ 0 ] == 0 )
-						ferror.set( a, '无法挂载，验证设备是否已插入，然后重试.', 0 );
+						ferror.set( a, '无法挂载，请确认设备已插入，然后重试.', 0 );
 				}
 				xob = null;
 				_forceRefresh();
@@ -176,7 +176,7 @@ No part of this file may be used without permission.
 								((p[5] != 0) ? ' (' + doScaleSize((p[5] - p[6]), 0) + 
 									((p[1] == 1) ? ' / ' + doScaleSize(p[5], 0) + ' 已使用' : '') +
 									')' : '') + '  ' +
-								((p[1] != 0) ? '' : '未知 ') + ((p[3] == 'swap') ? '活跃' : '已挂载') +
+								((p[1] != 0) ? '' : '未知 ') + ((p[3] == 'swap') ? '活动' : '已挂载') +
 								((p[2] != '') ? ' 于 ' + p[2] : '');
 							}
 						}
@@ -191,7 +191,7 @@ No part of this file may be used without permission.
 
 		dg.setup = function() {
 			this.init( 'dev-grid', 'sort' );
-			this.headerSet(['类型', 'Host', '描述', '状态']);
+			this.headerSet(['类型', 'Host', '描述', '已挂载']);
 			this.populate();
 			this.sort( 1 );
 		}
@@ -330,21 +330,21 @@ No part of this file may be used without permission.
 				<script type="text/javascript">
 					$( '#usbfields' ).forms([
 						{ title: '开启 USB 设备', name: 'f_usb', type: 'checkbox', value: nvram.usb_enable == 1 },
-						{ title: '支持 USB 3.0', indent: 2, name: 'f_usb3', type: 'checkbox', value: nvram.usb_usb3 == 1 },
-						{ title: '支持 USB 2.0', indent: 2, name: 'f_usb2', type: 'checkbox', value: nvram.usb_usb2 == 1 },
+						{ title: 'USB 3.0 支持', indent: 2, name: 'f_usb3', type: 'checkbox', value: nvram.usb_usb3 == 1 },
+						{ title: 'USB 2.0 支持', indent: 2, name: 'f_usb2', type: 'checkbox', value: nvram.usb_usb2 == 1 },
 						{
-							title: '支持 USB 1.1', indent: 2, multi: [
+							title: 'USB 1.1 支持', indent: 2, multi: [
 							{ suffix: '&nbsp; OHCI &nbsp;&nbsp;&nbsp;', name: 'f_ohci', type: 'checkbox', value: nvram.usb_ohci == 1 },
 							{ suffix: '&nbsp; UHCI &nbsp;', name: 'f_uhci', type: 'checkbox', value: nvram.usb_uhci == 1 }
 						]
 						},
 						null,
-						{ title: '支持 USB 打印机', name: 'f_print', type: 'checkbox', value: nvram.usb_printer == 1 },
+						{ title: 'USB 打印机支持', name: 'f_print', type: 'checkbox', value: nvram.usb_printer == 1 },
 						{ title: '双向复制', indent: 2, name: 'f_bprint', type: 'checkbox', value: nvram.usb_printer_bidirect == 1 },
 						null,
-						{ title: '支持 USB 存储设备', name: 'f_storage', type: 'checkbox', value: nvram.usb_storage == 1 },
+						{ title: 'USB 存储设备支持', name: 'f_storage', type: 'checkbox', value: nvram.usb_storage == 1 },
 						{
-							title: '支持文件系统', indent: 2, multi: [
+							title: '文件系统支持', indent: 2, multi: [
 							{ suffix: '&nbsp; Ext2 / Ext3 / Ext4 &nbsp;&nbsp;&nbsp;', name: 'f_ext4', type: 'checkbox', value: nvram.usb_fs_ext4 == 1 },
 							/* NTFS-BEGIN */
 							{ suffix: '&nbsp; NTFS &nbsp;&nbsp;&nbsp;', name: 'f_ntfs', type: 'checkbox', value: nvram.usb_fs_ntfs == 1 },
@@ -358,7 +358,7 @@ No part of this file may be used without permission.
 						},
 						/* NTFS-BEGIN */
 						{
-							title: 'NTFS 设备', indent: 2, name: 'usb_ntfs_driver', type: 'select', options: [
+							title: 'NTFS 驱动', indent: 2, name: 'usb_ntfs_driver', type: 'select', options: [
 							[ 'ntfs3g', '开启 NTFS-3G 驱动' ],
 							/* TUXERA-BEGIN */
 							[ 'tuxera', 'Tuxera 驱动' ],
@@ -371,31 +371,31 @@ No part of this file may be used without permission.
 						/* NTFS-END */
 						/* LINUX26-BEGIN */
 						/* MICROSD-BEGIN */
-						{ title: '支持 SD/MMC 卡', indent: 2, name: 'f_mmc', type: 'checkbox', value: nvram.usb_mmc == 1 },
+						{ title: 'SD/MMC 卡支持', indent: 2, name: 'f_mmc', type: 'checkbox', value: nvram.usb_mmc == 1 },
 						/* MICROSD-END */
 						/* LINUX26-END */
 						{
 							title: '自动挂载', indent: 2, name: 'f_automount', type: 'checkbox',
-							suffix: ' <small>自动将所有分区挂载于 <i>/mnt</i> 子目录中.</small>', value: nvram.usb_automount == 1
+							suffix: ' <small>自动将所有分区挂载到 <i>/mnt</i> 子目录.</small>', value: nvram.usb_automount == 1
 						},
-						{ title: '安装后执行', indent: 2, name: 'script_usbmount', type: 'textarea', value: nvram.script_usbmount },
+						{ title: '挂载后执行', indent: 2, name: 'script_usbmount', type: 'textarea', value: nvram.script_usbmount },
 						{ title: '卸载前执行', indent: 2, name: 'script_usbumount', type: 'textarea', value: nvram.script_usbumount },
 						null,
 						/* LINUX26-BEGIN */
 						{
 							title: 'HDD 休眠', name: 'f_idle_enable', type: 'checkbox',
-							suffix: ' <small>空闲时自动休眠硬盘，对闪存设备无效.</small>', value: nvram.idle_enable == 1
+							suffix: ' <small>空闲时自动休眠硬盘，对闪存设备不用设置.</small>', value: nvram.idle_enable == 1
 						},
 						null,
 						{
-							title: '支持 USB 3G Modem', name: 'f_usb_3g', type: 'checkbox',
-							suffix: ' <small>在从 USB 端口断开 3G 调制解调器之前，请记住取消选中复选框。如果调制解调器使用 usbserial 模块，您必须重新启动路由器，然后再拔下调制解调器.</small>', value: nvram.usb_3g == 1
+							title: 'USB 3G Modem 支持', name: 'f_usb_3g', type: 'checkbox',
+							suffix: ' <small>在从 USB 端口移除 3G 调制解调器之前，请记住取消选中复选框。如果调制解调器使用 usbserial 模块，您必须重新启动路由器，然后再拔下调制解调器.</small>', value: nvram.usb_3g == 1
 						},
 						null,
 						/* LINUX26-END */
 						{ title: '热插拔脚本<br><small>(当任何 USB 设备连接或删除时调用)</small>', name: 'script_usbhotplug', type: 'textarea', value: nvram.script_usbhotplug },
 						null,
-						{ text: '<small>某些更改将在重新启动后生效.</small>' }
+						{ text: '<small>某些更改将仅在重新启动后生效.</small>' }
 					]);
 				</script>
 			</div>

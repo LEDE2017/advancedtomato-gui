@@ -94,7 +94,7 @@
 				<div class="pull-right links">
 					<ul>
 						<li><a title="工具" href="#tools-ping.asp">工具集合 <i class="icon-tools"></i></a></li>
-						<li><a title="宽带" href="#bwm-realtime.asp">带宽图表 <i class="icon-graphs"></i></a></li>
+						<li><a title="带宽" href="#bwm-realtime.asp">带宽图表 <i class="icon-graphs"></i></a></li>
 						<li><a title="流量" href="#bwm-ipt-realtime.asp">流量图表 <i class="icon-traffic"></i></a></li>
 						<li><a title="系统" id="system-ui" href="#system">系统管理 <i class="icon-system"></i></a></li>
 					</ul>

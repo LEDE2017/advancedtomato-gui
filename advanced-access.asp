@@ -5,7 +5,7 @@ http://www.polarcloud.com/tomato/
 For use with Tomato Firmware only.
 No part of this file may be used without permission.
 LAN Access admin module by Augusto Bott
---><title>LAN 控制</title>
+--><title>LAN 访问控制</title>
 <content>
 	<script type="text/javascript" src="js/wireless.jsx?_http_id=<% nv(http_id); %>"></script>
 	<script type="text/javascript">

@@ -87,7 +87,7 @@ No part of this file may be used without permission.
 
 		<div id="loader">
 			<div class="spinner"></div>
-			路由器的新IP地址是 <% nv("lan_ipaddr"); %>.<br /> 您可能需要先释放，然后续订计算机的DHCP租用，然后才能继续.
+			路由器的新IP地址是 <% nv("lan_ipaddr"); %>.<br /> 您可能需要先释放，然后续订计算机的DHCP租约，然后才能继续.
 			<br /><br />
 			请稍候，路由器重新启动中... &nbsp;
 			<button class="btn" id="continue" onclick="go()" disabled>继续</button>

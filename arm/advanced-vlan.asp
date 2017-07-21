@@ -319,7 +319,7 @@
 				return;
 			}
 
-			if ( confirm( "必须重新启动路由器才能继续. 提交对 NVRAM 的更改并立即重新启动?" ) )
+			if ( confirm( "必须重新启动路由器才能继续. 提交更改到 NVRAM 并立即重新启动?" ) )
 				form.submit( fom, 0 );
 		}
 
@@ -535,7 +535,7 @@
 // Modifications to enable Native VLAN support(allow one untagged vlan per port) by default
 				if ( (f[ COL_P0 ].checked == 1) && (this.countElem( COL_P0, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P0, 1 ) - 1) >= this.countElem( COL_P0T, 1 )) && (f[ COL_P0T ].checked == 0) ) {
-						ferror.set( f[ COL_P0T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P0T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P0T ] );
@@ -543,7 +543,7 @@
 				}
 				if ( (f[ COL_P1 ].checked == 1) && (this.countElem( COL_P1, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P1, 1 ) - 1) >= this.countElem( COL_P1T, 1 )) && (f[ COL_P1T ].checked == 0) ) {
-						ferror.set( f[ COL_P1T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P1T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P1T ] );
@@ -551,7 +551,7 @@
 				}
 				if ( (f[ COL_P2 ].checked == 1) && (this.countElem( COL_P2, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P2, 1 ) - 1) >= this.countElem( COL_P2T, 1 )) && (f[ COL_P2T ].checked == 0) ) {
-						ferror.set( f[ COL_P2T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P2T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P2T ] );
@@ -559,7 +559,7 @@
 				}
 				if ( (f[ COL_P3 ].checked == 1) && (this.countElem( COL_P3, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P3, 1 ) - 1) >= this.countElem( COL_P3T, 1 )) && (f[ COL_P3T ].checked == 0) ) {
-						ferror.set( f[ COL_P3T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P3T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P3T ] );
@@ -567,7 +567,7 @@
 				}
 				if ( (f[ COL_P4 ].checked == 1) && (this.countElem( COL_P4, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P4, 1 ) - 1) >= this.countElem( COL_P4T, 1 )) && (f[ COL_P4T ].checked == 0) ) {
-						ferror.set( f[ COL_P4T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P4T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P4T ] );
@@ -587,21 +587,21 @@
 				}
 
 				if ( this.countVID( f[ COL_VID ].selectedIndex ) > 0 ) {
-					ferror.set( f[ COL_VID ], '无法给 VID 添加多个条目 ' + f[ 0 ].selectedIndex, quiet );
+					ferror.set( f[ COL_VID ], '无法给添加多个条目到 VID ' + f[ 0 ].selectedIndex, quiet );
 					valid = 0;
 				} else {
 					ferror.clear( f[ COL_VID ] );
 				}
 
 				if ( (this.countWan() > 0) && (f[ COL_BRI ].selectedIndex == 1) ) {
-					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作于 WAN', quiet );
+					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作 WAN', quiet );
 					valid = 0;
 				} else {
 					ferror.clear( f[ COL_BRI ] );
 				}
 
 				if ( (this.countWan2() > 0) && (f[ COL_BRI ].selectedIndex == 6) ) {
-					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作于 WAN2', quiet );
+					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作 WAN2', quiet );
 					valid = 0;
 				} else {
 					ferror.clear( f[ COL_BRI ] );
@@ -609,14 +609,14 @@
 
 				/* MULTIWAN-BEGIN */
 				if ( (this.countWan3() > 0) && (f[ COL_BRI ].selectedIndex == 7) ) {
-					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作于 WAN3', quiet );
+					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作 WAN3', quiet );
 					valid = 0;
 				} else {
 					ferror.clear( f[ COL_BRI ] );
 				}
 
 				if ( (this.countWan4() > 0) && (f[ COL_BRI ].selectedIndex == 8) ) {
-					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作于 WAN4', quiet );
+					ferror.set( f[ COL_BRI ], '只有一个 VID 可以用作 WAN4', quiet );
 					valid = 0;
 				} else {
 					ferror.clear( f[ COL_BRI ] );
@@ -625,7 +625,7 @@
 
 				for ( var i = 0; i < 4; i++ ) {
 					if ( (this.countLan( i ) > 0) && (f[ COL_BRI ].selectedIndex == (i + 2)) ) {
-						ferror.set( f[ COL_BRI ], '只能有一个 VID 可以用于 LAN' + ((i == 0) ? '' : i ) + ' (br' + i + ') 在任何时间', quiet );
+						ferror.set( f[ COL_BRI ], '在任何时候有且仅有一个 VID 可以用于 LAN' + ((i == 0) ? '' : i ) + ' (br' + i + ')', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_BRI ] );

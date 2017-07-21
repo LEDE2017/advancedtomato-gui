@@ -5,7 +5,7 @@ http://www.polarcloud.com/tomato/
 
 For use with Tomato Firmware only.
 No part of this file may be used without permission.
---><title>访问设置</title>
+--><title>管理员设置</title>
 <content>
 	<script type="text/javascript" src="js/interfaces.js"></script>
 	<script type="text/javascript">
@@ -239,7 +239,7 @@ No part of this file may be used without permission.
 						{ title: '端口', indent: 2, name: 'http_wanport', type: 'text', maxlen: 5, size: 7, value:  fixPort(nvram.http_wanport, 8080) },
 						{ title: '允许无线访问', name: 'f_http_wireless', type: 'checkbox', value:  nvram.web_wl_filter == 0 },
 						{ title: '<h5>用户界面设置</h5>' },
-						{ title: '界面主题', name: 'web_css', type: 'select', help: '使用 AdvancedTomato，你几乎没有内置的皮肤, 这样我们可以节省路由器上的空间以便添加更重要的功能.',
+						{ title: '界面主题', name: 'web_css', type: 'select', help: 'AdvancedTomato 只自带少数几个的内置主题, 这样我们可以节省路由器空间以便添加更重要的功能.',
 							options: [['tomato','默认'],
 							['css/schemes/green-scheme','绿色主题'],
 							['css/schemes/red-scheme','红色主题'],
@@ -251,8 +251,8 @@ No part of this file may be used without permission.
 						{ title: '默认导航状态', name: 'at_nav_state', type: 'select', help: '您可以随时通过单击图标直接切换导航样式，但这样做不会更改默认状态.',
 							options: [['default', '默认'], ['collapsed', '折叠']], value: nvram.at_nav_state },
 						{ title: 'ATTD ID#', indent: 2, name: 'ttb_css', type: 'text', maxlen: 25, size: 30, value: nvram.ttb_css, suffix: '主题 ID# 自 <a href="http://advancedtomato.com/themes/" target="_blank"><u><i>ATTD 主题库</i></u></a>' },
-						{ title: 'Web GUI 目录', name: 'web_dir', type: 'select', help: '警号！这将改变 Tomato Web 处理程序从中读取接口文件的目录. 只有在特定目录中有另一个接口时，才应该更改此选项',
-							options: [['default','默认: /www'], ['jffs', '自定义: /jffs/www '], ['opt', '自定义: /opt/www '], ['tmp', '自定义: /tmp/www ']], value: nvram.web_dir, suffix: ' <small>更改此设置之前，请确保您的已妥当准备好文件！</small>' },
+						{ title: 'Web GUI 目录', name: 'web_dir', type: 'select', help: '警告！这将改变 Tomato Web 读取界面文件的目录. 只有在指定的目录中存放了界面文件时，才应该更改此选项',
+							options: [['default','默认: /www'], ['jffs', '自定义: /jffs/www '], ['opt', '自定义: /opt/www '], ['tmp', '自定义: /tmp/www ']], value: nvram.web_dir, suffix: ' <small>更改此设置之前，请确保您已妥当准备好文件！</small>' },
 						{ title: '导航菜单', help: "此选项允许您扩展导航菜单的 javascript 对象（有关详细信息，请参阅 Tomato.js 源代码）。 这是高级选项，所以要小心！ 只接受 JSON 格式！",
 							name: 'at_nav', type: 'textarea', style: 'width: 100%; height: 100px;', value: nvram.at_nav }
 					];
@@ -292,7 +292,7 @@ No part of this file may be used without permission.
 						{ title: '使用密码登录', name: 'f_sshd_pass', type: 'checkbox', value: nvram.sshd_pass == 1 },
 						{ title: '使用认证密钥', name: 'sshd_authkeys', style: 'width: 100%; height: 100px;', type: 'textarea', value: nvram.sshd_authkeys }
 					]);
-					$('#section-ssh .heading').append('<a href="#" data-toggle="tooltip" class="pull-right" title="' + (sdup ? '禁用' : '启用') + ' SSH 守护进程" onclick="toggle(\'sshd\', sdup)" id="_sshd_button">'
+					$('#section-ssh .heading').append('<a href="#" data-toggle="tooltip" class="pull-right" title="' + (sdup ? '禁用' : '启用') + ' SSH 服务" onclick="toggle(\'sshd\', sdup)" id="_sshd_button">'
 						+ (sdup ? '<i class="icon-stop"></i>' : '<i class="icon-play"></i>') + '</a>');
 					$('.ssh-status').html((sdup ? '<small style="color: green;">(运行中)</small>' : '<small style="color: red;">(停止)</small>'));
 				</script>
@@ -307,7 +307,7 @@ No part of this file may be used without permission.
 						{ title: '开机启动', name: 'f_telnetd_eas', type: 'checkbox', value: nvram.telnetd_eas == 1 },
 						{ title: 'Telnet 访问端口', name: 'telnetd_port', type: 'text', maxlen: 5, size: 7, value: nvram.telnetd_port }
 					]);
-					$('#section-telnet .heading').append('<a href="#" data-toggle="tooltip" class="pull-right" title="' + (tdup ? '禁用' : '启用') + ' Telnet 守护进程" onclick="toggle(\'telnetd\', tdup)" id="_telnetd_button">'
+					$('#section-telnet .heading').append('<a href="#" data-toggle="tooltip" class="pull-right" title="' + (tdup ? '禁用' : '启用') + ' Telnet 服务" onclick="toggle(\'telnetd\', tdup)" id="_telnetd_button">'
 						+ (tdup ? '<i class="icon-stop"></i>' : '<i class="icon-play"></i>') + '</a>');
 					$('.telnet-status').html((tdup ? '<small style="color: green;">(运行中)</small>' : '<small style="color: red;">(停止)</small>'));
 				</script>

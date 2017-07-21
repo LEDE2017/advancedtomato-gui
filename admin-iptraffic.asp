@@ -149,11 +149,11 @@ No part of this file may be used without permission.
 				path = getPath();
 				if (((E('_cstats_stime').value * 1) <= 48) &&
 					((path == '*nvram') || (path == '/jffs/'))) {
-					if (!confirm('不建议对 NVRAM 或 JFFS2 频繁的存取，是否继续??')) return;
+					if (!confirm('不建议对 NVRAM 或 JFFS2 进行频繁的存取，是否继续??')) return;
 				}
 				if ((nvram.cstats_path != path) && (fom.cstats_path.value != path) && (path != '') && (path != '*nvram') &&
 					(path.substr(path.length - 1, 1) != '/')) {
-					if (!confirm('注意: ' + path + ' 将会被视为一个文件. 如果这是一个目录，请使用 /. 是否继续?')) return;
+					if (!confirm('注意: ' + path + ' 将会被视为一个文件. 如果这是一个目录，请使用 / 作为目录结尾. 是否继续?')) return;
 				}
 				fom.cstats_path.value = path;
 				if (E('_f_new').checked) {
@@ -220,7 +220,7 @@ No part of this file may be used without permission.
 						/* REMOVE-BEGIN
 						//	{ name: 'f_loc', type: 'select', options: [['','RAM (Temporary)'],['*nvram','NVRAM'],['/jffs/','JFFS2'],['/cifs1/','CIFS 1'],['/cifs2/','CIFS 2'],['*user','Custom Path']], value: loc },
 						REMOVE-END */
-						{ name: 'f_loc', type: 'select', options: [['','RAM (临时的)'],['/jffs/','JFFS2'],['/cifs1/','CIFS 1'],['/cifs2/','CIFS 2'],['*user','自定义路径']], value: loc },
+						{ name: 'f_loc', type: 'select', options: [['','RAM (临时)'],['/jffs/','JFFS2'],['/cifs1/','CIFS 1'],['/cifs2/','CIFS 2'],['*user','自定义路径']], value: loc },
 						{ name: 'f_user', type: 'text', maxlen: 48, size: 30, value: nvram.cstats_path }
 					] },
 					{ title: '保存频率', indent: 2, name: 'cstats_stime', type: 'select', value: nvram.cstats_stime, options: [
@@ -229,7 +229,7 @@ No part of this file may be used without permission.
 						[120,'每五天'],[144,'每六天'],[168,'每周']] },
 					{ title: '关机时保存', indent: 2, name: 'f_sshut', type: 'checkbox', value: nvram.cstats_sshut == '1' },
 					{ title: '创建新文件<br><small>(清除数据)</small>', indent: 2, name: 'f_new', type: 'checkbox', value: 0,
-						suffix: ' &nbsp; <b id="newmsg" style="visibility:hidden"><small>注意：如果这是一个新文件，则启用之</small></b>' },
+						suffix: ' &nbsp; <b id="newmsg" style="visibility:hidden"><small>注意：如果这是一个新文件，则启用</small></b>' },
 					{ title: '创建备份', indent: 2, name: 'f_bak', type: 'checkbox', value: nvram.cstats_bak == '1' },
 					{ title: '每月第一天为', name: 'cstats_offset', type: 'text', value: nvram.cstats_offset, maxlen: 2, size: 4 },
 					{ title: '排除的 IP', help: '多个用逗号分隔', name: 'cstats_exclude', type: 'text', value: nvram.cstats_exclude, maxlen: 512, size: 50 },
@@ -265,7 +265,7 @@ No part of this file may be used without permission.
 				<div class="col-sm-12">
 					<h4>说明</h4>
 					<ul>
-						<li>IP 流量是关于监控 <i>IPv4</i> 网络流量 <i>通过</i> 此路由器.</li>
+						<li>IP 流量是关于监控<i>通过</i> 此路由器 <i>IPv4</i> 的网络流量 .</li>
 						<li>检查你的 <a class="ajaxload" href="basic-network.asp">LAN 设置</a> 在启用此功能之前：任何/所有 LAN 接口必须具有至少设置了16位的网络掩码（255.255.0.0）.</li>
 						<li>不支持监控较大的子网.</li>
 					</ul>

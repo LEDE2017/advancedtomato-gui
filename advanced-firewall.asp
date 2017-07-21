@@ -35,7 +35,7 @@ No part of this file may be used without permission.
 			if ( nvram.lan3_ifname.length < 1 )
 				E( '_f_multicast_lan3' ).checked = false;
 			if ( (enable_mcast) && (!E( '_f_multicast_lan' ).checked) && (!E( '_f_multicast_lan1' ).checked) && (!E( '_f_multicast_lan2' ).checked) && (!E( '_f_multicast_lan3' ).checked) ) {
-				ferror.set( '_f_multicast', '至少需要在一个局域网网桥上启用组播', quiet );
+				ferror.set( '_f_multicast', '至少需要在一个局域网网桥上启用 IGMPproxy', quiet );
 				return 0;
 			} else {
 				ferror.clear( '_f_multicast' );

@@ -16,10 +16,10 @@ No part of this file may be used without permission.
 
 		var classNames = nvram.qos_classnames.split(' ');		// Toastman - configurable class names
 
-		pctListin = [[0, '未限制']];
+		pctListin = [[0, '无限制']];
 		for (i = 1; i <= 100; ++i) pctListin.push([i, i + '%']);
 
-		pctListout = [[0, '未限制']];
+		pctListout = [[0, '无限制']];
 		for (i = 1; i <= 100; ++i) pctListout.push([i, i + '%']);
 
 		function scale(bandwidth, rate, ceil)

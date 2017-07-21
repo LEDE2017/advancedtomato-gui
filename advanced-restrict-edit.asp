@@ -445,7 +445,7 @@ No part of this file may be used without permission.
 				</script>
 
 				<button type="button" value="删除..." id="delete-button" onclick="delRULE();" class="btn btn-danger"><i class="icon-cancel"></i> 删除</button> &nbsp;
-				<button type="button" value="保存设置" id="save-button" onclick="save();" class="btn btn-primary">保存设置
+				<button type="button" value="保存设置" id="save-button" onclick="save();" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
 				<button type="button" value="取消设置" id="cancel-button" onclick="cancel();" class="btn">取消设置 <i class="icon-disable"></i></button>
 				<span id="footer-msg"></span>
 			</div>

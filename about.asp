@@ -221,7 +221,7 @@
 
 	<div class="box box-fluid">
 		<div class="content">
-			<h4>特别鸣谢</h4>
+			<h4>特别感谢</h4>
 			<p>We want to express our gratitude to all people not mentioned here but contributed with patches, new models additions, bug solving and updates to Tomato firmware.</p>
 
 			<h4>基于 Tomato Firmware v1.28</h4>
@@ -230,7 +230,7 @@
 			</p>
 
 			<p>
-				创建于 <% build_time(); %> by Jacky, <a href='https://advancedtomato.com/' target='_new'>https://advancedtomato.com</a>.
+				编译于 <% build_time(); %> by Jacky, <a href='https://advancedtomato.com/' target='_new'>https://advancedtomato.com</a>.
 				<br /><b>Thanks to everyone who risked their routers, tested, reported bugs, made suggestions and contributed to this project. ^ _ ^</b>
 			</p>
 

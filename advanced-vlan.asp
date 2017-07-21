@@ -334,7 +334,7 @@ No part of this file may be used without permission.
 			}
 
 			if ( vlg.countLan( 0 ) != 1 ) {
-				e.innerHTML        = '无法继续：至少有一个 VID 必须分配给主局域网(br0).';
+				e.innerHTML        = '无法继续：有且仅有一个 VID 必须分配给主局域网(br0).';
 				e.style.visibility = 'visible';
 				setTimeout(
 						function() {
@@ -355,7 +355,7 @@ No part of this file may be used without permission.
 				return;
 			}
 
-			if ( confirm( "必须重新启动路由器才能继续. 提交对 NVRAM 的更改并立即重新启动?" ) )
+			if ( confirm( "必须重新启动路由器才能继续. 提交更改到 NVRAM 并立即重新启动?" ) )
 				form.submit( fom, 0 );
 		}
 
@@ -572,7 +572,7 @@ No part of this file may be used without permission.
 				// Modifications to enable Native VLAN support(allow one untagged vlan per port) by default
 				if ( (f[ COL_P0 ].checked == 1) && (this.countElem( COL_P0, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P0, 1 ) - 1) >= this.countElem( COL_P0T, 1 )) && (f[ COL_P0T ].checked == 0) ) {
-						ferror.set( f[ COL_P0T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P0T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P0T ] );
@@ -580,7 +580,7 @@ No part of this file may be used without permission.
 				}
 				if ( (f[ COL_P1 ].checked == 1) && (this.countElem( COL_P1, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P1, 1 ) - 1) >= this.countElem( COL_P1T, 1 )) && (f[ COL_P1T ].checked == 0) ) {
-						ferror.set( f[ COL_P1T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P1T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P1T ] );
@@ -588,7 +588,7 @@ No part of this file may be used without permission.
 				}
 				if ( (f[ COL_P2 ].checked == 1) && (this.countElem( COL_P2, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P2, 1 ) - 1) >= this.countElem( COL_P2T, 1 )) && (f[ COL_P2T ].checked == 0) ) {
-						ferror.set( f[ COL_P2T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P2T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P2T ] );
@@ -596,7 +596,7 @@ No part of this file may be used without permission.
 				}
 				if ( (f[ COL_P3 ].checked == 1) && (this.countElem( COL_P3, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P3, 1 ) - 1) >= this.countElem( COL_P3T, 1 )) && (f[ COL_P3T ].checked == 0) ) {
-						ferror.set( f[ COL_P3T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P3T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P3T ] );
@@ -604,7 +604,7 @@ No part of this file may be used without permission.
 				}
 				if ( (f[ COL_P4 ].checked == 1) && (this.countElem( COL_P4, 1 ) > 0) ) {
 					if ( ((this.countElem( COL_P4, 1 ) - 1) >= this.countElem( COL_P4T, 1 )) && (f[ COL_P4T ].checked == 0) ) {
-						ferror.set( f[ COL_P4T ], '每个端口只允许标记一个 VLAN（Native VLAN）', quiet );
+						ferror.set( f[ COL_P4T ], '每个端口只允许一个未标记的 VLAN（Native VLAN）', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_P4T ] );
@@ -663,7 +663,7 @@ No part of this file may be used without permission.
 
 				for ( var i = 0; i < 4; i++ ) {
 					if ( (this.countLan( i ) > 0) && (f[ COL_BRI ].selectedIndex == (i + 2)) ) {
-						ferror.set( f[ COL_BRI ], '只能有一个 VID 可以用于 LAN' + ((i == 0) ? '' : i ) + ' (br' + i + ') 在任何时间', quiet );
+						ferror.set( f[ COL_BRI ], '在任何时候有且仅有一个 VID 可以用于 LAN' + ((i == 0) ? '' : i ) + ' (br' + i + ')', quiet );
 						valid = 0;
 					} else {
 						ferror.clear( f[ COL_BRI ] );

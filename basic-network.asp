@@ -438,14 +438,14 @@ No part of this file may be used without permission.
 			if (selectedBand(uidx) == '1') {
 				m.push(['a-only','仅 802.11a']);
 				if (nphy) {
-					m.push(['n-only','仅 802.11a']);
+					m.push(['n-only','仅 802.11n']);
 				}
 			}
 			else {
-				m.push(['b-only','仅 802.11a']);
+				m.push(['b-only','仅 802.11b']);
 				m.push(['g-only','仅 802.11g']);
 				if (nphy) {
-					m.push(['bg-mixed','802.11B/G']);
+					m.push(['bg-mixed','802.11b/g混合']);
 					m.push(['n-only','仅 802.11n']);
 				}
 			}
