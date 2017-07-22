@@ -1,6 +1,6 @@
 /* =====================================================================================================
 * AdvancedTomato - Graphical User Interface
-* Copyright (C) 2014-2016 Jaka Prasnikar @ https://prahec.com/
+* Copyright (C) 2014-2016 Jaka Prasnikar @https://prahec.com/
 * https://advancedtomato.com/
 *
 * Tomato GUI
@@ -11,13 +11,16 @@
 // Some variables
 $font-normal: 400;
 $font-bold: 500;
-$font-family: 'Segoe UI', 'Roboto', sans-serif;
+$font-family: 'Roboto', 'Segoe UI', sans-serif;
 
 // Some colors
 $navi-background: #263238;
 
 // Animations
 $overflow-anim: cubic-bezier(1.000, -0.600, 0.000, 1.650);
+
+// Mixins
+@import '_mixins';
 
 // Imports
 @import 'elements/reset';

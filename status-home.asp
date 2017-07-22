@@ -65,7 +65,7 @@
 				stats = {};
 			}
 			show();
-		}
+		};
 
 
 		function c( id, htm ) {

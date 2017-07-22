@@ -41,7 +41,7 @@ No part of this file may be used without permission.
 
 		ref.stop = function() {
 			this.timer.start(1000);
-		}
+		};
 
 		ref.refresh = function(text) {
 			var c, i, h, n, j, k, l;
@@ -65,17 +65,15 @@ No part of this file may be used without permission.
 
 				for (i in iptmon) {
 					c = iptmon[i];
-					if ((p = prev[i]) != null) {
-						h = speed_history[i];
+                    if ( (p = prev[ i ]) != null ) {
+                        h = speed_history[ i ];
 
-						h.rx.splice(0, 1);
-						h.rx.push((c.rx < p.rx) ? (c.rx + (0xFFFFFFFF - p.rx)) : (c.rx - p.rx));
+                        h.rx.splice( 0, 1 );
+                        h.rx.push( (c.rx < p.rx) ? (c.rx + (0xFFFFFFFF - p.rx + 0x00000001)) : (c.rx - p.rx) );
 
-						h.tx.splice(0, 1);
-						h.tx.push((c.tx < p.tx) ? (c.tx + (0xFFFFFFFF - p.tx)) : (c.tx - p.tx));
-						h.count++;
-						if (h.count > updateMaxL) h.count = updateMaxL;
-					}
+                        h.tx.splice( 0, 1 );
+                        h.tx.push( (c.tx < p.tx) ? (c.tx + (0xFFFFFFFF - p.tx + 0x00000001)) : (c.tx - p.tx) );
+                    }
 					else if (!speed_history[i]) {
 						speed_history[i] = {};
 						h = speed_history[i];
@@ -119,7 +117,7 @@ No part of this file may be used without permission.
 				REMOVE-END */
 			}
 			--updating;
-		}
+		};
 
 		function watchdog() {
 			watchdogReset();
@@ -144,7 +142,7 @@ No part of this file may be used without permission.
 
 			speed_history = [];
 
-			initCommon(2, 1, 1);
+			initCommon(2, 0, 0);
 
 			wdogWarn = E('warnwd');
 			watchdogReset();

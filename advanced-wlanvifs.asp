@@ -400,7 +400,7 @@ LAN Access admin module by Augusto Bott
 			//		wl_enc_modes_available.push([mode, enc[mode]]);
 			//	}
 
-			//wl_ifaces = [ ['eth1','0',0,-1,'bott','00:1C:10:9E:8C:8E',1,4],['wl0.1','0.1',0,1,'ghetto','02:1C:10:9E:8C:8F',1,0], 
+			//wl_ifaces = [ ['eth1','0',0,-1,'bott','00:1C:10:9E:8C:8E',1,4],['wl0.1','0.1',0,1,'ghetto','02:1C:10:9E:8C:8F',1,0],
 			//				['eth2','1',1,-1,'lixo','04:1C:10:9E:8C:8E',1,4]];
 			//wl_bands = [ [ '2'],[ '2'],[ '2'] ];
 			/* REMOVE-END */
@@ -1310,253 +1310,255 @@ LAN Access admin module by Augusto Bott
 	</script>
 
 	<form id="_fom" method="post" action="tomato.cgi">
-	<input type="hidden" name="_nextpage" value="/#advanced-wlanvifs.asp">
-	<input type="hidden" name="_nextwait" value="10">
-	<input type="hidden" name="_service" value="wireless-restart">
-	<input type="hidden" name="_force_commit" value="1">
+        <input type="hidden" name="_nextpage" value="/#advanced-wlanvifs.asp">
+        <input type="hidden" name="_nextwait" value="10">
+        <input type="hidden" name="_service" value="wireless-restart">
+        <input type="hidden" name="_force_commit" value="1">
 
-	<!-- LINUX24-BEGIN -->
-	<input type="hidden" name="nas_alternate" value="">
-	<!-- LINUX24-END -->
-	<input type="hidden" name="lan_ifnames" value="">
-	<input type="hidden" name="lan1_ifnames" value="">
-	<input type="hidden" name="lan2_ifnames" value="">
-	<input type="hidden" name="lan3_ifnames" value="">
+        <!-- LINUX24-BEGIN -->
+        <input type="hidden" name="nas_alternate" value="">
+        <!-- LINUX24-END -->
+        <input type="hidden" name="lan_ifnames" value="">
+        <input type="hidden" name="lan1_ifnames" value="">
+        <input type="hidden" name="lan2_ifnames" value="">
+        <input type="hidden" name="lan3_ifnames" value="">
 
-	<div class="box" id="sesdiv" style="display:none">
-		<div class="heading">虚拟无线接口</div>
+        <div class="box" id="sesdiv" style="display:none">
+            <div class="heading">虚拟无线接口</div>
 
-		<div class="content">
+            <div class="content">
 
-			<div id="tabsmain"></div><br />
-			<script type="text/javascript">$('#tabsmain').append(tabCreate.apply(this, tabs));</script>
+                <div id="tabsmain"></div><br />
+                <script type="text/javascript">$('#tabsmain').append(tabCreate.apply(this, tabs));</script>
 
-			<div id="overview-tab">
-				<table class="line-table" id="wlif-grid"></table><br />
+                <div id="overview-tab">
+                    <table class="line-table" id="wlif-grid"></table><br />
 
-				<h3><a href="javascript:toggleVisibility('details');">无线接口详细信息 <span id="sesdivdetailsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
-				<div class="section fixtables" id="sesdivdetails" style="display:none">
+                    <h3><a href="javascript:toggleVisibility('details');">无线接口详细信息 <span id="sesdivdetailsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
+                    <div class="section fixtables" id="sesdivdetails" style="display:none">
 
-					<script type="text/javascript">
-						var c = [];
-						for (var uidx = 0; uidx < wl_ifaces.length; ++uidx) {
-							if (wl_sunit(uidx)<0) {
-								c.push({ title: '接口', text: 'wl' + wl_fface(uidx) + ' <small>(' + wl_display_ifname(uidx) + ')</small>' });
-								c.push({ title: '虚拟接口', indent: 2, rid: 'wl' + wl_fface(uidx) + '_vifs',
-									text: 'wl' + wl_fface(uidx) + ' ' +  nvram['wl' + wl_fface(uidx) + '_vifs'] + ' <small>(max ' + wl_ifaces[uidx][7] + ')</small>' });
+                        <script type="text/javascript">
+                            var c = [];
+                            for (var uidx = 0; uidx < wl_ifaces.length; ++uidx) {
+                                if (wl_sunit(uidx)<0) {
+                                    c.push({ title: '接口', text: 'wl' + wl_fface(uidx) + ' <small>(' + wl_display_ifname(uidx) + ')</small>' });
+                                    c.push({ title: '虚拟接口', indent: 2, rid: 'wl' + wl_fface(uidx) + '_vifs',
+                                        text: 'wl' + wl_fface(uidx) + ' ' +  nvram['wl' + wl_fface(uidx) + '_vifs'] + ' <small>(max ' + wl_ifaces[uidx][7] + ')</small>' });
 
-							}
-						}
+                                }
+                            }
 
-						createFieldTable('',c, '#sesdivdetails', 'line-table');
-					</script>
-				</div><br />
+                            createFieldTable('',c, '#sesdivdetails', 'line-table');
+                        </script>
+                    </div><br />
 
-				<!-- LINUX24-BEGIN -->
-				<h3><a href="javascript:toggleVisibility('options');">可选 <span id="sesdivoptionsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
-				<div class="section" id="sesdivoptions" style="display:none"></div><hr>
-				<script type="text/javascript">
-					$('#sesdivoptions').forms([
-						{ title: '使用备用 NAS 启动顺序', name: 'f_nas_alternate', type: 'checkbox', value: nvram.nas_alternate == '1' }
-					]);
-				</script>
-				<!-- LINUX24-END -->
+                    <!-- LINUX24-BEGIN -->
+                    <h3><a href="javascript:toggleVisibility('options');">可选 <span id="sesdivoptionsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
+                    <div class="section" id="sesdivoptions" style="display:none"></div><hr>
+                    <script type="text/javascript">
+                        $('#sesdivoptions').forms([
+                            { title: '使用备用 NAS 启动顺序', name: 'f_nas_alternate', type: 'checkbox', value: nvram.nas_alternate == '1' }
+                        ]);
+                    </script>
+                    <!-- LINUX24-END -->
 
-				<h4><a href="javascript:toggleVisibility('notes');">说明 <span id="sesdivnotesshowhide"><i class="icon-chevron-up"></i></span></a></h4>
-				<div class="section" id="sesdivnotes" style="display:none">
+                    <h4><a href="javascript:toggleVisibility('notes');">说明 <span id="sesdivnotesshowhide"><i class="icon-chevron-up"></i></span></a></h4>
+                    <div class="section" id="sesdivnotes" style="display:none">
 
-					<ul>
-						<li><b>接口</b> - 无线 VIF 名称.</li>
-						<li><b>启用</b> - 此 VIF 是否处于活动状态并联机.</li>
-						<li><b>SSID</b> - 无线服务标识符.</li>
-						<li><b>模式</b> - 接口模式：AP，WDS，无线客户端等</li>
-						<li><b>桥接</b> - 选择要将 VIF 桥接到哪个网络.</li>
-					</ul>
+                        <ul>
+                            <li><b>接口</b> - 无线 VIF 名称.</li>
+                            <li><b>启用</b> - 此 VIF 是否处于活动状态并联机.</li>
+                            <li><b>SSID</b> - 无线服务标识符.</li>
+                            <li><b>模式</b> - 接口模式：AP，WDS，无线客户端等</li>
+                            <li><b>桥接</b> - 选择要将 VIF 桥接到哪个网络.</li>
+                        </ul>
 
-					<ul>
-						<!-- LINUX24-BEGIN -->
-						<li><b>使用备用 NAS 启动(...)</b> - <i>只适用于 K24 构建的固件</i> - 如果您需要运行多个NAS进程，请启用此选项 (即在多于个 WLVIF 上处理 WPAx 加密).</li>
-						<!-- LINUX24-END -->
-					</ul>
+                        <ul>
+                            <!-- LINUX24-BEGIN -->
+                            <li><b>使用备用 NAS 启动(...)</b> - <i>只适用于 K24 构建的固件</i> - 如果您需要运行多个NAS进程，请启用此选项 (即在多于个 WLVIF 上处理 WPAx 加密).</li>
+                            <!-- LINUX24-END -->
+                        </ul>
 
-					<ul>
-						<li><b>其它说明:</b>
-						<ul>
-							<li>当创建新的无线 VIF 时，它的 MAC 地址将被显示（不正确）为'00：00：00：00：00：00'，因为它在那一刻是未知的 (直到网络重新启动并重新加载此页面).</li>
-							<li>保存更改时，所有定义的非主要无线 VIF 的 MAC 地址有时可能（已经） <i>固定</i> 但也可能 <i>重新创建</i> 由 WL 驱动程序（以便先前 定义/保存 的设置可能需要据此更改 <a href=#advanced-mac.asp>MAC 地址</a> 保存设置并重新启动路由器后).</li>
-							<li>此 Web 界面允许为每个可用的物理无线接口配置最多4个 VIF，除主要 VIF 之外，最多可定义3个额外的 VIF(<i>在具有多个VIF功能的设备上</i>).</li>
-							<li>根据定义，配置设置为 <i>主 VIF</i> 的任何物理无线接口不应该在这里修改 (使用 <a class="ajaxload" href="basic-network.asp">基础网络设置</a> 页面修改).</li>
-						</ul>
-					</ul>
-				</div>
-			</div>
+                        <ul>
+                            <li><b>其它说明:</b>
+                            <ul>
+                                <li>当创建新的无线 VIF 时，它的 MAC 地址将被显示（不正确）为'00：00：00：00：00：00'，因为它在那一刻是未知的 (直到网络重新启动并重新加载此页面).</li>
+                                <li>保存更改时，所有定义的非主要无线 VIF 的 MAC 地址有时可能（已经） <i>固定</i> 但也可能 <i>重新创建</i> 由 WL 驱动程序（以便先前 定义/保存 的设置可能需要据此更改 <a href=#advanced-mac.asp>MAC 地址</a> 保存设置并重新启动路由器后).</li>
+                                <li>此 Web 界面允许为每个可用的物理无线接口配置最多4个 VIF，除主要 VIF 之外，最多可定义3个额外的 VIF(<i>在具有多个VIF功能的设备上</i>).</li>
+                                <li>根据定义，配置设置为 <i>主 VIF</i> 的任何物理无线接口不应该在这里修改 (使用 <a class="ajaxload" href="basic-network.asp">基础网络设置</a> 页面修改).</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
 
-			<div id="tabsetc"></div>
+                <div id="tabsetc"></div>
 
-			<script type="text/javascript">
-				var htmlOut = '';
-				for (var i = 1; i < tabs.length; ++i) {
-					var t = tabs[i][0];
-					var uidx = wl_ifidxx(t);
-					var u = t;
+                <script type="text/javascript">
+                    var htmlOut = '';
+                    for (var i = 1; i < tabs.length; ++i) {
+                        var t = tabs[i][0];
+                        var uidx = wl_ifidxx(t);
+                        var u = t;
 
-					htmlOut += '<div id="'+t+'-tab-disabled">';
-					htmlOut += '<br>';
-					htmlOut += 'VIF ' + tabs[i][1] + ' 没有定义. <br /><br />';
-					htmlOut += '</div>';
+                        htmlOut += '<div id="'+t+'-tab-disabled">';
+                        htmlOut += '<br>';
+                        htmlOut += 'VIF ' + tabs[i][1] + ' 没有定义. <br /><br />';
+                        htmlOut += '</div>';
 
-					htmlOut += '<div id="'+t+'-tab">';
-					htmlOut += '<br>';
+                        htmlOut += '<div id="'+t+'-tab">';
+                        htmlOut += '<br>';
 
-					// common to all VIFs
-					htmlOut += '<input type="hidden" id="_wl'+u+'_radio"       name="wl'+u+'_radio"       >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_mode"        name="wl'+u+'_mode"        >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_closed"      name="wl'+u+'_closed"      >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_key"         name="wl'+u+'_key"         >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_akm"         name="wl'+u+'_akm"         >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_auth_mode"   name="wl'+u+'_auth_mode"   >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_wep"         name="wl'+u+'_wep"         >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_auth"        name="wl'+u+'_auth"        >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_bss_enabled" name="wl'+u+'_bss_enabled" >';
-					htmlOut += '<input type="hidden" id="_wl'+u+'_ifname"      name="wl'+u+'_ifname"      >';
+                        // common to all VIFs
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_radio"       name="wl'+u+'_radio"       >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_mode"        name="wl'+u+'_mode"        >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_closed"      name="wl'+u+'_closed"      >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_key"         name="wl'+u+'_key"         >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_akm"         name="wl'+u+'_akm"         >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_auth_mode"   name="wl'+u+'_auth_mode"   >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_wep"         name="wl'+u+'_wep"         >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_auth"        name="wl'+u+'_auth"        >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_bss_enabled" name="wl'+u+'_bss_enabled" >';
+                        htmlOut += '<input type="hidden" id="_wl'+u+'_ifname"      name="wl'+u+'_ifname"      >';
 
-					// only if primary VIF
-					if (u.toString().indexOf('.') < 0) {
-						htmlOut += '<input type="hidden" id="_wl'+u+'_nband"      name="wl'+u+'_nband"      >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_wds_enable" name="wl'+u+'_wds_enable" >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_wds"        name="wl'+u+'_wds"        >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_lazywds"    name="wl'+u+'_lazywds"    >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_gmode"      name="wl'+u+'_gmode"      >';
+                        // only if primary VIF
+                        if (u.toString().indexOf('.') < 0) {
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_nband"      name="wl'+u+'_nband"      >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_wds_enable" name="wl'+u+'_wds_enable" >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_wds"        name="wl'+u+'_wds"        >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_lazywds"    name="wl'+u+'_lazywds"    >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_gmode"      name="wl'+u+'_gmode"      >';
 
-						htmlOut += '<input type="hidden" id="_wl'+u+'_nmode"      name="wl'+u+'_nmode"      >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_nmcsidx"    name="wl'+u+'_nmcsidx"    >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_nreqd"      name="wl'+u+'_nreqd"      >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_nctrlsb"    name="wl'+u+'_nctrlsb"    >';
-						htmlOut += '<input type="hidden" id="_wl'+u+'_nbw"        name="wl'+u+'_nbw"        >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_nmode"      name="wl'+u+'_nmode"      >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_nmcsidx"    name="wl'+u+'_nmcsidx"    >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_nreqd"      name="wl'+u+'_nreqd"      >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_nctrlsb"    name="wl'+u+'_nctrlsb"    >';
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_nbw"        name="wl'+u+'_nbw"        >';
 
-						htmlOut += '<input type="hidden" id="_wl'+u+'_vifs"       name="wl'+u+'_vifs"       >';
-					}
+                            htmlOut += '<input type="hidden" id="_wl'+u+'_vifs"       name="wl'+u+'_vifs"       >';
+                        }
 
-					var f = [];
-					f.push (
-						{ title: '启用接口', name: 'f_wl'+u+'_radio', type: 'checkbox',
-							value: (eval('nvram["wl'+u+'_radio"]') == '1') && (eval('nvram["wl'+u+'_net_mode"]') != 'disabled') },
-						{ title: 'MAC 地址', text: '<a href="#advanced-mac.asp">' + (eval('nvram["wl'+u+'_hwaddr"]') || '00:00:00:00:00:00') + '</a>' +
-							' &nbsp; <b id="wl'+u+'_hwaddr_msg" style="visibility:hidden"><small>(注意: 无线网卡驱动提供的 BSSID <a href=#advanced-mac.asp>' + ((typeof(wl_ifaces[wl_ifidxx(u)]) != 'undefined')? wl_ifaces[wl_ifidxx(u)][9] : '') + '</a>)</small></b>' },
-						{ title: '无线模式', name: 'f_wl'+u+'_mode', type: 'select',
-							options: wl_modes_available,
-							value: ((eval('nvram["wl'+u+'_mode"]') == 'ap') && (eval('nvram["wl'+u+'_wds_enable"]') == '1')) ? 'apwds' : eval('nvram["wl'+u+'_mode"]'),
-							suffix: ' &nbsp; <b id="wl'+u+'_mode_msg" style="visibility:hidden"><small>(注意: 设置后请至 <a href=basic-network.asp>基本网络设置</a>中查看)</small></b>' }
-					);
+                        var f = [];
+                        f.push (
+                            { title: '启用接口', name: 'f_wl'+u+'_radio', type: 'checkbox',
+                                value: (eval('nvram["wl'+u+'_radio"]') == '1') && (eval('nvram["wl'+u+'_net_mode"]') != 'disabled') },
+                            { title: 'MAC 地址', text: '<a href="#advanced-mac.asp">' + (eval('nvram["wl'+u+'_hwaddr"]') || '00:00:00:00:00:00') + '</a>' +
+                                ' &nbsp; <b id="wl'+u+'_hwaddr_msg" style="visibility:hidden"><small>(注意: 无线网卡驱动提供的 BSSID <a href=#advanced-mac.asp>' + ((typeof(wl_ifaces[wl_ifidxx(u)]) != 'undefined')? wl_ifaces[wl_ifidxx(u)][9] : '') + '</a>)</small></b>' },
+                            { title: '无线模式', name: 'f_wl'+u+'_mode', type: 'select',
+                                options: wl_modes_available,
+                                value: ((eval('nvram["wl'+u+'_mode"]') == 'ap') && (eval('nvram["wl'+u+'_wds_enable"]') == '1')) ? 'apwds' : eval('nvram["wl'+u+'_mode"]'),
+                                suffix: ' &nbsp; <b id="wl'+u+'_mode_msg" style="visibility:hidden"><small>(注意: 设置后请至 <a href=basic-network.asp>基本网络设置</a>中查看)</small></b>' }
+                        );
 
-					// only if primary VIF
-					if (u.toString().indexOf('.') < 0) {
-						f.push (
-							{ title: '无线频段', name: 'f_wl'+u+'_nband', type: 'select', options: bands[uidx],
-								value: eval('nvram["wl'+u+'_nband"]') || '0' == '0' ? bands[uidx][0][0] : eval('nvram["wl'+u+'_nband"]') },
-							{ title: '工作模式', name: 'wl'+u+'_net_mode', type: 'select',
-								value: (eval('nvram["wl'+u+'_net_mode"]') == 'disabled') ? 'mixed' : eval('nvram["wl'+u+'_net_mode"]'),
-								options: [], prefix: '<span id="__wl'+u+'_net_mode">', suffix: '</span>' }
-						);
-					}
+                        // only if primary VIF
+                        if (u.toString().indexOf('.') < 0) {
+                            f.push (
+                                { title: '无线频段', name: 'f_wl'+u+'_nband', type: 'select', options: bands[uidx],
+                                    value: eval('nvram["wl'+u+'_nband"]') || '0' == '0' ? bands[uidx][0][0] : eval('nvram["wl'+u+'_nband"]') },
+                                { title: '工作模式', name: 'wl'+u+'_net_mode', type: 'select',
+                                    value: (eval('nvram["wl'+u+'_net_mode"]') == 'disabled') ? 'mixed' : eval('nvram["wl'+u+'_net_mode"]'),
+                                    options: [], prefix: '<span id="__wl'+u+'_net_mode">', suffix: '</span>' }
+                            );
+                        }
 
-					if (typeof(eval('nvram["wl'+u+'_closed"]')) == 'undefined')
-						nvram['wl'+u+'_closed'] = '0';
+                        if (typeof(eval('nvram["wl'+u+'_closed"]')) == 'undefined')
+                            nvram['wl'+u+'_closed'] = '0';
 
-					f.push (
-						{ title: 'SSID', name: 'wl'+u+'_ssid', type: 'text', maxlen: 32, size: 34, value: eval('nvram["wl'+u+'_ssid"]') },
-						{ title: 'SSID 广播', indent: 2, name: 'f_wl'+u+'_bcast', type: 'checkbox', value: (eval('nvram["wl'+u+'_closed"]') == '0') }
-					);
+                        f.push (
+                            { title: 'SSID', name: 'wl'+u+'_ssid', type: 'text', maxlen: 32, size: 34, value: eval('nvram["wl'+u+'_ssid"]') },
+                            { title: 'SSID 广播', indent: 2, name: 'f_wl'+u+'_bcast', type: 'checkbox', value: (eval('nvram["wl'+u+'_closed"]') == '0') }
+                        );
 
-					// only if primary VIF
-					if (u.toString().indexOf('.') < 0) {
-						f.push (
-							{ title: '频道', name: 'wl'+u+'_channel', type: 'select', options: ghz[uidx], prefix: '<div style="display: inline-block; vertical-align: middle;" id="__wl'+u+'_channel">', 
-								suffix: '</div> <button class="btn" type="button" id="_f_wl'+u+'_scan" value="扫描" onclick="scanButton('+u+')">Scan <i class="icon-search"></i></button> <span class="spinner" id="spin'+u+'"></span>',
-								value: eval('nvram["wl'+u+'_channel"]') },
-							{ title: '频宽', name: 'wl'+u+'_nbw_cap', type: 'select', options: [['0','20 MHz'],['1','40 MHz']],
-								value: eval('nvram["wl'+u+'_nbw_cap"]') },
-							{ title: '控制边带', name: 'f_wl'+u+'_nctrlsb', type: 'select', options: [['lower','下部'],['upper','上部']],
-								value: eval('nvram["wl'+u+'_nctrlsb"]') == 'none' ? 'lower' : eval('nvram["wl'+u+'_nctrlsb"]') }
-						);
-					}
+                        // only if primary VIF
+                        if (u.toString().indexOf('.') < 0) {
+                            f.push (
+                                { title: '频道', name: 'wl'+u+'_channel', type: 'select', options: ghz[uidx], prefix: '<div style="display: inline-block; vertical-align: middle;" id="__wl'+u+'_channel">',
+                                    suffix: '</div> <button class="btn" type="button" id="_f_wl'+u+'_scan" value="扫描" onclick="scanButton('+u+')">Scan <i class="icon-search"></i></button> <span class="spinner" id="spin'+u+'"></span>',
+                                    value: eval('nvram["wl'+u+'_channel"]') },
+                                { title: '频宽', name: 'wl'+u+'_nbw_cap', type: 'select', options: [['0','20 MHz'],['1','40 MHz']],
+                                    value: eval('nvram["wl'+u+'_nbw_cap"]') },
+                                { title: '控制边带', name: 'f_wl'+u+'_nctrlsb', type: 'select', options: [['lower','下部'],['upper','上部']],
+                                    value: eval('nvram["wl'+u+'_nctrlsb"]') == 'none' ? 'lower' : eval('nvram["wl'+u+'_nctrlsb"]') }
+                            );
+                        }
 
-					if (typeof(eval('nvram["wl'+u+'_crypto"]')) == 'undefined')
-						nvram['wl'+u+'_crypto'] = 'aes';
+                        if (typeof(eval('nvram["wl'+u+'_crypto"]')) == 'undefined')
+                            nvram['wl'+u+'_crypto'] = 'aes';
 
-					f.push (
-						{ title: '安全设置', name: 'wl'+u+'_security_mode', type: 'select',
-							options: [['disabled','禁用'],['wep','WEP'],['wpa_personal','WPA 个人'],['wpa_enterprise','WPA 企业'],['wpa2_personal','WPA2 个人'],['wpa2_enterprise','WPA2 企业'],['wpaX_personal','WPA / WPA2 个人'],['wpaX_enterprise','WPA / WPA2 企业'],['radius','Radius']],
-							value: eval('nvram["wl'+u+'_security_mode"]') },
-						{ title: '加密方式', indent: 2, name: 'wl'+u+'_crypto', type: 'select',
-							options: [['tkip','TKIP'],['aes','AES'],['tkip+aes','TKIP / AES']], value: eval('nvram["wl'+u+'_crypto"]') },
-						{ title: '共享密钥', indent: 2, name: 'wl'+u+'_wpa_psk', type: 'password', maxlen: 64, size: 64, peekaboo: 1,
-							suffix: ' <button class="btn" type="button" id="_f_wl'+u+'_psk_random1" value="随机" onclick="random_psk(\'_wl'+u+'_wpa_psk\')">Random</button>',
-							value: eval('nvram["wl'+u+'_wpa_psk"]') },
-						{ title: '共享密钥', indent: 2, name: 'wl'+u+'_radius_key', type: 'password', maxlen: 80, size: 32, peekaboo: 1,
-							suffix: ' <button class="btn" type="button" id="_f_wl'+u+'_psk_random2" value="Random" onclick="random_psk(\'_wl'+u+'_radius_key\')">Random</button>',
-							value: eval('nvram["wl'+u+'_radius_key"]') },
-						{ title: '组密钥更新间隔', indent: 2, name: 'wl'+u+'_wpa_gtk_rekey', type: 'text', maxlen: 4, size: 6, suffix: ' <i>(seconds)</i>',
-							value: eval('nvram["wl'+u+'_wpa_gtk_rekey"]') || '3600' },
-						{ title: 'Radius 服务', indent: 2, multi: [
-							{ name: 'wl'+u+'_radius_ipaddr', type: 'text', maxlen: 15, size: 17, value: eval('nvram["wl'+u+'_radius_ipaddr"]') },
-							{ name: 'wl'+u+'_radius_port', type: 'text', maxlen: 5, size: 7, prefix: ' : ', value: eval('nvram["wl'+u+'_radius_port"]') || '1812' } ] },
-						{ title: '加密方式', indent: 2, name: 'wl'+u+'_wep_bit', type: 'select', options: [['128','128-bits'],['64','64-bits']],
-							value: eval('nvram["wl'+u+'_wep_bit"]') },
-						{ title: '密码', indent: 2, name: 'wl'+u+'_passphrase', type: 'text', maxlen: 16, size: 20,
-							suffix: ' <input type="button" id="_f_wl'+u+'_wep_gen" value="生成" onclick="generate_wep('+u+')"> <button class="btn" type="button" id="_f_wl'+u+'_wep_random" value="随机" onclick="random_wep('+u+')">Random</button>',
-							value: eval('nvram["wl'+u+'_passphrase"]') }
-					);
+                        f.push (
+                            { title: '安全设置', name: 'wl'+u+'_security_mode', type: 'select',
+                                options: [['disabled','禁用'],['wep','WEP'],['wpa_personal','WPA 个人'],['wpa_enterprise','WPA 企业'],['wpa2_personal','WPA2 个人'],['wpa2_enterprise','WPA2 企业'],['wpaX_personal','WPA / WPA2 个人'],['wpaX_enterprise','WPA / WPA2 企业'],['radius','Radius']],
+                                value: eval('nvram["wl'+u+'_security_mode"]') },
+                            { title: '加密方式', indent: 2, name: 'wl'+u+'_crypto', type: 'select',
+                                options: [['tkip','TKIP'],['aes','AES'],['tkip+aes','TKIP / AES']], value: eval('nvram["wl'+u+'_crypto"]') },
+                            { title: '共享密钥', indent: 2, name: 'wl'+u+'_wpa_psk', type: 'password', maxlen: 64, size: 64, peekaboo: 1,
+                                suffix: ' <button class="btn" type="button" id="_f_wl'+u+'_psk_random1" value="随机" onclick="random_psk(\'_wl'+u+'_wpa_psk\')">Random</button>',
+                                value: eval('nvram["wl'+u+'_wpa_psk"]') },
+                            { title: '共享密钥', indent: 2, name: 'wl'+u+'_radius_key', type: 'password', maxlen: 80, size: 32, peekaboo: 1,
+                                suffix: ' <button class="btn" type="button" id="_f_wl'+u+'_psk_random2" value="Random" onclick="random_psk(\'_wl'+u+'_radius_key\')">Random</button>',
+                                value: eval('nvram["wl'+u+'_radius_key"]') },
+                            { title: '组密钥更新间隔', indent: 2, name: 'wl'+u+'_wpa_gtk_rekey', type: 'text', maxlen: 4, size: 6, suffix: ' <i>(seconds)</i>',
+                                value: eval('nvram["wl'+u+'_wpa_gtk_rekey"]') || '3600' },
+                            { title: 'Radius 服务', indent: 2, multi: [
+                                { name: 'wl'+u+'_radius_ipaddr', type: 'text', maxlen: 15, size: 17, value: eval('nvram["wl'+u+'_radius_ipaddr"]') },
+                                { name: 'wl'+u+'_radius_port', type: 'text', maxlen: 5, size: 7, prefix: ' : ', value: eval('nvram["wl'+u+'_radius_port"]') || '1812' } ] },
+                            { title: '密码', indent: 2, name: 'wl'+u+'_wep_bit', type: 'select', options: [['128','128-bits'],['64','64-bits']],
+                                value: eval('nvram["wl'+u+'_wep_bit"]') },
+                            { title: 'Passphrase', indent: 2, name: 'wl'+u+'_passphrase', type: 'text', maxlen: 16, size: 20,
+                                suffix: ' <input type="button" id="_f_wl'+u+'_wep_gen" value="生成" onclick="generate_wep('+u+')"> <button class="btn" type="button" id="_f_wl'+u+'_wep_random" value="随机" onclick="random_wep('+u+')">Random</button>',
+                                value: eval('nvram["wl'+u+'_passphrase"]') }
+                        );
 
-					if (typeof(eval('nvram["wl'+u+'_key"]')) == 'undefined')
-						nvram['wl'+u+'_key'] = '1';
-					/* REMOVE-BEGIN */
-					//		eval('nvram["wl'+u+'_key"] = 1');
-					/* REMOVE-END */
+                        if (typeof(eval('nvram["wl'+u+'_key"]')) == 'undefined')
+                            nvram['wl'+u+'_key'] = '1';
+                        /* REMOVE-BEGIN */
+                        //		eval('nvram["wl'+u+'_key"] = 1');
+                        /* REMOVE-END */
 
-					for (var j = 1; j <= 4; ++j) {
-						f.push(
-							{ title: ('密钥 ' + j), indent: 2, name: ('wl'+u+'_key' + j), type: 'text', maxlen: 26, size: 34,
-								suffix: '<input type="radio" onchange="verifyFields(this,1)" onclick="verifyFields(this,1)" name="f_wl'+u+'_wepidx" id="_f_wl'+u+'_wepidx_' + j + '" value="' + j + '"' + ((eval('nvram["wl'+u+'_key"]') == j) ? ' checked>' : '>'),
-								value: nvram['wl'+u+'_key' + j] });
-					}
+                        for (var j = 1; j <= 4; ++j) {
+                            f.push(
+                                { title: ('密钥 ' + j), indent: 2, name: ('wl'+u+'_key' + j), type: 'text', maxlen: 26, size: 34,
+                                    suffix: '<input type="radio" onchange="verifyFields(this,1)" onclick="verifyFields(this,1)" name="f_wl'+u+'_wepidx" id="_f_wl'+u+'_wepidx_' + j + '" value="' + j + '"' + ((eval('nvram["wl'+u+'_key"]') == j) ? ' checked>' : '>'),
+                                    value: nvram['wl'+u+'_key' + j] });
+                        }
 
-					f.push(
-						{ title: 'WDS', name: 'f_wl'+u+'_lazywds', type: 'select',
-							options: [['0','连接至...'],['1','自动']], value: nvram['wl'+u+'_lazywds'] } );
-					/* REMOVE-BEGIN */
-					//	alert('nvram["wl'+u+'_wds"]=' + eval('nvram["wl'+u+'_wds"]'));
-					/* REMOVE-END */
-					wds = eval('nvram["wl'+u+'_wds"]');
-					if (typeof(wds) == 'undefined') {
-						nvram['wl'+u+'_wds'] = '';
-					}
+                        f.push(
+                            { title: 'WDS', name: 'f_wl'+u+'_lazywds', type: 'select',
+                                options: [['0','连接至...'],['1','自动']], value: nvram['wl'+u+'_lazywds'] } );
+                        /* REMOVE-BEGIN */
+                        //	alert('nvram["wl'+u+'_wds"]=' + eval('nvram["wl'+u+'_wds"]'));
+                        /* REMOVE-END */
+                        wds = eval('nvram["wl'+u+'_wds"]');
+                        if (typeof(wds) == 'undefined') {
+                            nvram['wl'+u+'_wds'] = '';
+                        }
 
-					wds = eval('nvram["wl'+u+'_wds"]').split(/\s+/);
-					/* REMOVE-BEGIN */
-					//	wds = (nvram['wl'+u+'_wds']).split(/\s+/);
-					/* REMOVE-END */
-					for (var k = 0; k < 10; k += 2)	{
-						f.push({ title: (k ? '' : 'MAC 地址'), indent: 2, multi: [
-							{ name: 'f_wl'+u+'_wds_' + k, type: 'text', maxlen: 17, size: 20, value: wds[k] || '00:00:00:00:00:00' },
-							{ name: 'f_wl'+u+'_wds_' + (k + 1), type: 'text', maxlen: 17, size: 20, value: wds[k + 1] || '00:00:00:00:00:00' } ] } );
-					}
+                        wds = eval('nvram["wl'+u+'_wds"]').split(/\s+/);
+                        /* REMOVE-BEGIN */
+                        //	wds = (nvram['wl'+u+'_wds']).split(/\s+/);
+                        /* REMOVE-END */
+                        for (var k = 0; k < 10; k += 2)	{
+                            f.push({ title: (k ? '' : 'MAC 地址'), indent: 2, multi: [
+                                { name: 'f_wl'+u+'_wds_' + k, type: 'text', maxlen: 17, size: 20, value: wds[k] || '00:00:00:00:00:00' },
+                                { name: 'f_wl'+u+'_wds_' + (k + 1), type: 'text', maxlen: 17, size: 20, value: wds[k + 1] || '00:00:00:00:00:00' } ] } );
+                        }
 
-					htmlOut += createFormFields(f);
-					htmlOut += ('</div>');
+                        htmlOut += createFormFields(f);
+                        htmlOut += ('</div>');
 
-				}
+                    }
 
-				$('#tabsetc').append(htmlOut);
-			</script>
-			<!-- / WLIFDIV / -->
-		</div>
-		<!-- / SESDIV / -->
-	</div>
+                    $('#tabsetc').append(htmlOut);
+                </script>
+                <!-- / WLIFDIV / -->
+            </div>
+            <!-- / SESDIV / -->
+        </div>
 
-	<button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
-	<button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
-	<span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span>
+        <button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
+        <button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
+        <span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span>
+
+	</form>
 
 	<script type="text/javascript">
 		init();

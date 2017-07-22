@@ -27,20 +27,20 @@ No part of this file may be used without permission.
 				if (data[i][f] == v) return true;
 			}
 			return false;
-		}
+		};
 
 		sg.existMAC = function(mac) {
 			if (isMAC0(mac)) return false;
 			return this.exist(0, mac) || this.exist(1, mac);
-		}
+		};
 
 		sg.existName = function(name) {
 			return this.exist(5, name);
-		}
+		};
 
 		sg.inStatic = function(n) {
 			return this.exist(3, n);
-		}
+		};
 
 		sg.dataToView = function(data) {
 			var v = [];
@@ -53,7 +53,7 @@ No part of this file may be used without permission.
 			v.push((data[4].toString() != '0') ? '<small><i>启用</i></small>' : '');
 			v.push(escapeHTML('' + data[5]));
 			return v;
-		}
+		};
 
 		sg.dataToFieldValues = function (data) {
 			return ([data[0],
@@ -62,7 +62,7 @@ No part of this file may be used without permission.
 				data[3],
 				(data[4].toString() != '0') ? 'checked' : '',
 				data[5]]);
-		}
+		};
 
 		sg.fieldValuesToData = function(row) {
 			var f = fields.getAll(row);
@@ -72,7 +72,7 @@ No part of this file may be used without permission.
 				f[3].value,
 				f[4].checked ? '1' : '0',
 				f[5].value]);
-		}
+		};
 
 		sg.sortCompare = function(a, b) {
 			var da = a.getRowData();
@@ -94,7 +94,7 @@ No part of this file may be used without permission.
 			}
 			if (r == 0) r = cmpText(da[5], db[5]);
 			return this.sortAscending ? r : -r;
-		}
+		};
 
 		sg.verifyFields = function(row, quiet) {
 			var f, s, i;
@@ -177,7 +177,7 @@ No part of this file may be used without permission.
 			}
 
 			return 1;
-		}
+		};
 
 		sg.resetNewEditor = function() {
 			var f, c, n;
@@ -214,7 +214,7 @@ No part of this file may be used without permission.
 			} while (((c = fixIP(ntoa(autonum), 1)) == null) || (c == nvram.lan_ipaddr) || (this.inStatic(c)));
 
 			f[3].value = c;
-		}
+		};
 
 		sg.setup = function() {
 			this.init('bs-grid', 'sort', 250, [
@@ -250,7 +250,7 @@ No part of this file may be used without permission.
 			this.sort(4);
 			this.showNewEditor();
 			this.resetNewEditor();
-		}
+		};
 
 		function save() {
 			if (sg.isEditing()) return;
@@ -306,62 +306,65 @@ No part of this file may be used without permission.
 
 	</script>
 
-	<form id="_fom" method="post" action="tomato.cgi">
-		<input type="hidden" name="_nextpage" value="/#basic-static.asp">
-		<input type="hidden" name="_service" value="dhcpd-restart,arpbind-restart,cstats-restart">
+    <form id="_fom" method="post" action="tomato.cgi">
+        <input type="hidden" name="_nextpage" value="/#basic-static.asp">
+        <input type="hidden" name="_service" value="dhcpd-restart,arpbind-restart,cstats-restart">
 
-		<input type="hidden" name="dhcpd_static">
-		<input type="hidden" name="dhcpd_static_only">
-		<input type="hidden" name="cstats_include">
-		<input type="hidden" name="arpbind_listed">
+        <input type="hidden" name="dhcpd_static">
+        <input type="hidden" name="dhcpd_static_only">
+        <input type="hidden" name="cstats_include">
+        <input type="hidden" name="arpbind_listed">
 
-		<div class="box">
-			<div class="heading">静态 DHCP/ARP 和 LAN 客户端带宽监控</div>
-			<div class="content">
-				<table class="line-table" id="bs-grid"></table><br />
+        <div class="box">
+            <div class="heading">静态 DHCP/ARP 和 LAN 客户端带宽监控</div>
+            <div class="content">
 
-				<h3><a href="javascript:toggleVisibility('options');">可选 <span id="sesdivoptionsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
-				<div class="section" id="sesdivoptions" style="display:none"></div><hr>
-				<script type="text/javascript">
-					$('#sesdivoptions').forms([
-						{ title: '忽略未知设备的 DHCP 请求', name: 'f_dhcpd_static_only', type: 'checkbox', value: nvram.dhcpd_static_only == '1' }
-					]);
-				</script>
+                <table class="line-table" id="bs-grid"></table><br>
+
+                <h3><a href="javascript:toggleVisibility('options');">可选 <span id="sesdivoptionsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
+                <div class="section" id="sesdivoptions" style="display:none"></div><hr>
+
+                <script type="text/javascript">
+                    $( '#sesdivoptions' ).forms(
+                        [
+                            { title: '忽略未知设备的 DHCP 请求', name: 'f_dhcpd_static_only', type: 'checkbox', value: nvram.dhcpd_static_only == '1' }
+                        ] );
+                </script>
 
 
-				<h4>说明 <a href="javascript:toggleVisibility('notes');"><span id="sesdivnotesshowhide"><i class="icon-chevron-up"></i></span></a></h4>
-				<div class="section" id="sesdivnotes" style="display:none">
-					<ul>
-						<li><b>MAC 地址</b> - 与此设备的一个网络接口相关联的唯一标示符.</li>
-						<li><b>绑定到</b> - 在此 IP/MAC 组合上强制静态 ARP 绑定.</li>
-						<li><b>IP 地址</b> - 在本地网络上分配给这个设备的网络地址.</li>
-						<li><b>IP 流量</b> - 监控此 IP 地址的流量.</li>
-						<li><b>主机名</b> - 在网络上分配给这个设备的昵称/标签.</li>
-					</ul>
+                <h4><a href="javascript:toggleVisibility('notes');">说明 <span id="sesdivnotesshowhide"><i class="icon-chevron-up"></i></span></h4></a>
+                <div class="section" id="sesdivnotes" style="display:none">
+                    <ul>
+                        <li><b>MAC 地址</b> - 与此设备的一个网络接口相关联的唯一标示符.</li>
+                        <li><b>绑定到</b> - 在此 IP/MAC 组合上强制静态 ARP 绑定.</li>
+                        <li><b>IP 地址</b> - 在本地网络上分配给这个设备的网络地址..</li>
+                        <li><b>IP 流量</b> - 监控此 IP 地址的流量.</li>
+                        <li><b>主机名</b> - 在网络上分配给这个设备的昵称/标签.</li>
+                    </ul>
 
-					<ul>
-						<li><b>绑定静态 ARP 至 (...)</b> - 对上面列出的所有 IP/ MAC 地址强制执行静态 ARP 绑定.</li>
-						<li><b>忽略未知设备的 DHCP 请求 (...)</b> - Unlisted MAC addresses won"t be able to obtain an IP address through DHCP.</li>
-					</ul>
+                    <ul>
+                        <li><b>绑定静态 ARP 至 (...)</b> - 对上面列出的所有 IP/ MAC 地址强制执行静态 ARP 绑定.</li>
+                        <li><b>忽略未知设备的 DHCP 请求 (...)</b> - DHCP将不会给未列出的 MAC 地址分配 IP 地址.</li>
+                    </ul>
 
-					<ul>
-						<li><b>其它说明:</b>
-						<ul>
-							<li>如要指定多个主机设备，请用空格隔开.</li>
-							<li>如要对一个特定设备 启用/执行 静态ARP绑定，它只能一个 MAC 地址对应一个 IP 地址（即在上面的表中，你不能有两个 MAC 地址链接到同一主机/设备）.</li>
-							<li>当对一个特定的 MAC/IP 地址对启用了 静态ARP绑定 之后，那个设备将永远在 <a href="#tools-wol.asp">网络唤醒</a> 列表中显示为 ‘活动’.</li>
-							<li>也可以查看 <a href="#advanced-dhcpdns.asp">高级 DHCP/DNS </a> 设置页有更多DHCP相关的配置选项.</li>
-						</ul>
-					</ul>
-				</div>
+                    <ul>
+                        <li><b>其它说明:</b>
+                            <ul>
+                                <li>如要指定多个主机设备，请用空格隔开.</li>
+                                <li>如要对一个特定设备 启用/执行 静态ARP绑定，它只能一个 MAC 地址对应一个 IP 地址（即在上面的表中，你不能有两个 MAC 地址链接到同一主机/设备）.</li>
+                                <li>当对一个特定的 MAC/IP 地址对启用了 静态ARP绑定 之后，那个设备将永远在 <a href="#tools-wol.asp">网络唤醒</a> 列表中显示为 ‘活动’.</li>
+                                <li>也可以查看 <a href="#advanced-dhcpdns.asp">高级 DHCP/DNS </a> 设置页，那里有更多DHCP相关的配置选项.</li>
+                            </ul>
+                    </ul>
+                </div>
 
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
-		<button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
-		<span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span>
-	</form>
+        <button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
+        <button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
+        <span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span>
+    </form>
 
-	<script type="text/javascript">init();</script>
+    <script type="text/javascript">init();</script>
 </content>

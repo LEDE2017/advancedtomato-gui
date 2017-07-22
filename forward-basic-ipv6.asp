@@ -20,7 +20,7 @@ No part of this file may be used without permission.
 
 			switch (col) {
 				case 0:	// on
-				case 1:	// proto
+				case 1:	// protocol
 				case 4:	// ports
 					r = cmpInt(da[col], db[col]);
 					break;
@@ -30,16 +30,16 @@ No part of this file may be used without permission.
 			}
 
 			return this.sortAscending ? r : -r;
-		}
+		};
 
 		fog.dataToView = function(data) {
 			return [(data[0] != '0') ? '<i class="icon-check icon-green"></i>' : '<i class="icon-cancel icon-red"></i>', ['TCP', 'UDP', 'Both'][data[1] - 1], (data[2].match(/(.+)-(.+)/)) ? (RegExp.$1 + ' -<br>' + RegExp.$2) : data[2], data[3], data[4], data[5]];
-		}
+		};
 
 		fog.fieldValuesToData = function(row) {
 			var f = fields.getAll(row);
 			return [f[0].checked ? 1 : 0, f[1].value, f[2].value, f[3].value, f[4].value, f[5].value];
-		}
+		};
 
 		fog.verifyFields = function(row, quiet) {
 			var f = fields.getAll(row);
@@ -57,7 +57,7 @@ No part of this file may be used without permission.
 			f[5].value = f[5].value.replace(/>/g, '_');
 			if (!v_nodelim(f[5], quiet, '描述')) return 0;
 			return 1;
-		}
+		};
 
 		fog.resetNewEditor = function() {
 			var f = fields.getAll(this.newEditor);
@@ -68,7 +68,7 @@ No part of this file may be used without permission.
 			f[4].value = '';
 			f[5].value = '';
 			ferror.clearAll(fields.getAll(this.newEditor));
-		}
+		};
 
 		fog.setup = function() {
 			this.init('fo-grid', 'sort', 100, [

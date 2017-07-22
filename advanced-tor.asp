@@ -125,7 +125,7 @@ No part of this file may be used without permission.
 
 				<script type="text/javascript">
 					$('#tor-settings').forms([
-	                     { title: '启用 TOR', name: 'f_tor_enable', type: 'checkbox', value: nvram.tor_enable == '1' },
+	                     { title: '启用 Tor', name: 'f_tor_enable', type: 'checkbox', value: nvram.tor_enable == '1' },
 	                     null,
 	                     { title: 'Socks 端口', name: 'tor_socksport', type: 'text', maxlen: 5, size: 7, value: fixPort(nvram.tor_socksport, 9050) },
 	                     { title: 'Trans 端口', name: 'tor_transport', type: 'text', maxlen: 5, size: 7, value: fixPort(nvram.tor_transport, 9040) },

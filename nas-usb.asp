@@ -9,7 +9,7 @@ No part of this file may be used without permission.
 	<style>textarea { width: 100%; }</style>
 	<script type="text/javascript">
 
-		//	<% nvram("usb_enable,usb_uhci,usb_ohci,usb_usb2,usb_mmc,usb_storage,usb_printer,usb_printer_bidirect,usb_automount,usb_fs_ext3,usb_fs_fat,usb_fs_ntfs,usb_fs_hfs,script_usbmount,script_usbumount,script_usbhotplug,idle_enable,usb_3g"); %>
+		//	<% nvram("usb_enable,usb_uhci,usb_ohci,usb_usb2,usb_mmc,usb_storage,usb_printer,usb_printer_bidirect,usb_automount,usb_fs_ext3,usb_fs_fat,usb_fs_ntfs,usb_fs_hfs,script_usbmount,script_usbumount,script_usbhotplug,idle_enable,usb_3g,usb_apcupsd"); %>
 		//	<% usbdevices(); %>
 
 		list = [];
@@ -52,12 +52,12 @@ No part of this file may be used without permission.
 				}
 				xob = null;
 				_forceRefresh();
-			}
+			};
 
 			xob.onError = function() {
 				xob = null;
 				_forceRefresh();
-			}
+			};
 
 			xob.post('usbcmd.cgi', 'remove=' + host);
 		}
@@ -82,12 +82,12 @@ No part of this file may be used without permission.
 				}
 				xob = null;
 				_forceRefresh();
-			}
+			};
 
 			xob.onError = function() {
 				xob = null;
 				_forceRefresh();
-			}
+			};
 
 			xob.post('usbcmd.cgi', 'mount=' + host);
 		}
@@ -105,7 +105,7 @@ No part of this file may be used without permission.
 			dg.removeAllData();
 			dg.populate();
 			dg.resort();
-		}
+		};
 
 		var dg = new TomatoGrid();
 
@@ -126,7 +126,7 @@ No part of this file may be used without permission.
 					r = cmpText(a.cells[col].innerHTML, b.cells[col].innerHTML);
 			}
 			return this.sortAscending ? r : -r;
-		}
+		};
 
 		dg.populate = function()
 		{
@@ -180,7 +180,7 @@ No part of this file may be used without permission.
 							p = parts[k];
 							if (p) {
 								desc = desc + '<br>分区 \'' + p[0] + '\'' + (p[3] != '' ? ' ' + p[3] : '') +
-								((p[5] != 0) ? ' (' + doScaleSize((p[5] - p[6]), 0) + 
+								((p[5] != 0) ? ' (' + doScaleSize((p[5] - p[6]), 0) +
 									((p[1] == 1) ? ' / ' + doScaleSize(p[5], 0) + ' 已使用' : '') +
 									')' : '') + '  ' +
 								((p[1] != 0) ? '' : '未知 ') + ((p[3] == 'swap') ? '活跃' : '已挂载') +
@@ -194,7 +194,7 @@ No part of this file may be used without permission.
 			}
 
 			list = [];
-		}
+		};
 
 		dg.setup = function()
 		{
@@ -202,7 +202,7 @@ No part of this file may be used without permission.
 			this.headerSet(['类型', 'Host', '描述', '状态']);
 			this.populate();
 			this.sort(1);
-		}
+		};
 
 		function earlyInit() {
 			$('#last-box').after(genStdRefresh(1,0,'ref.toggle()'));
@@ -239,6 +239,9 @@ No part of this file may be used without permission.
 			E('_f_idle_enable').disabled = b || a;
 			E('_f_usb_3g').disabled = b;
 			/* LINUX26-END */
+			/* UPS-BEGIN */
+			E('_f_usb_apcupsd').disabled = b;
+			/* UPS-END */
 			/* NTFS-BEGIN */
 			E('_f_ntfs').disabled = b || a;
 			/* NTFS-END */
@@ -293,6 +296,9 @@ No part of this file may be used without permission.
 			fom.idle_enable.value = E('_f_idle_enable').checked ? 1 : 0;
 			fom.usb_3g.value = E('_f_usb_3g').checked ? 1 : 0;
 			/* LINUX26-END */
+            /* UPS-BEGIN */
+            fom.usb_apcupsd.value = E( '_f_usb_apcupsd' ).checked ? 1 : 0;
+            /* UPS-END */
 
 			form.submit(fom, 1);
 		}
@@ -328,6 +334,9 @@ No part of this file may be used without permission.
 		<input type="hidden" name="idle_enable">
 		<input type="hidden" name="usb_3g">
 		/* LINUX26-END */
+		/* UPS-BEGIN */
+		<input type="hidden" name="usb_apcupsd">
+		/* UPS-END */
 
 		<div class="box" data-box="usb-supp">
 			<div class="heading">USB 设备支持</div>
@@ -364,18 +373,21 @@ No part of this file may be used without permission.
 						/* LINUX26-END */
 						{ title: '自动挂载', indent: 2, name: 'f_automount', type: 'checkbox',
 							suffix: ' <small>自动将所有分区挂载于 <i>/mnt</i> 子目录中.</small>', value: nvram.usb_automount == 1 },
-						{ title: '安装后执行', indent: 2, name: 'script_usbmount', type: 'textarea', value: nvram.script_usbmount },
-						{ title: '卸载前执行', indent: 2, name: 'script_usbumount', type: 'textarea', value: nvram.script_usbumount },
-						null,
+						{ title: '挂载后执行', indent: 2, name: 'script_usbmount', style: 'min-height: 80px;', type: 'textarea', value: nvram.script_usbmount },
+						{ title: '卸载前执行', indent: 2, name: 'script_usbumount', style: 'min-height: 80px;', type: 'textarea', value: nvram.script_usbumount },
 						/* LINUX26-BEGIN */
 						{ title: 'HDD 休眠', name: 'f_idle_enable', type: 'checkbox',
 							suffix: ' <small>空闲时自动休眠硬盘，对闪存设备无效.</small>', value: nvram.idle_enable == 1 },
-						null,
 						{ title: '支持 USB 3G Modem', name: 'f_usb_3g', type: 'checkbox',
 							suffix: ' <small>在从 USB 端口断开 3G 调制解调器之前，请记住取消选中复选框。如果调制解调器使用 usbserial 模块，您必须重新启动路由器，然后再拔下调制解调器.</small>', value: nvram.usb_3g == 1 },
-						null,
+						/* UPS-BEGIN */
+						{
+						    title: 'Run APCUPSD Daemon', name: 'f_usb_apcupsd', type: 'checkbox',
+							suffix: ' <small>Required by UPS Monitor (APC Uninterpretable Power Supply)</small>', value: nvram.usb_apcupsd == 1
+						},
+						/* UPS-END */
 						/* LINUX26-END */
-						{ title: '热插拔脚本<br><small>(当任何 USB 设备连接或删除时调用)</small>', name: 'script_usbhotplug', type: 'textarea', value: nvram.script_usbhotplug },
+						{ title: '热插拔脚本<br><small>(当任何 USB 设备连接或删除时调用)</small>', style: 'min-height: 80px;', name: 'script_usbhotplug', type: 'textarea', value: nvram.script_usbhotplug },
 						null,
 						{ text: '<small>某些更改将在重新启动后生效.</small>' }
 					]);
