@@ -864,7 +864,7 @@ LAN Access admin module by Augusto Bott
 						case 'mixed':
 						case 'n-only':
 							if (nphy && (a.value == 'tkip') && (sm2.indexOf('wpa') != -1)) {
-								ferror.set(a, 'WPA/WPA2 在 N模式下不支持 TKIP 加密.', quiet || !ok);
+								ferror.set(a, 'WPA/WPA2 在 N 模式下不支持 TKIP 加密.', quiet || !ok);
 								ok = 0;
 							}
 							else ferror.clear(a);
@@ -1353,7 +1353,7 @@ LAN Access admin module by Augusto Bott
                     </div><br />
 
                     <!-- LINUX24-BEGIN -->
-                    <h3><a href="javascript:toggleVisibility('options');">可选 <span id="sesdivoptionsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
+                    <h3><a href="javascript:toggleVisibility('options');">选项 <span id="sesdivoptionsshowhide"><i class="icon-chevron-up"></i></span></a></h3>
                     <div class="section" id="sesdivoptions" style="display:none"></div><hr>
                     <script type="text/javascript">
                         $('#sesdivoptions').forms([
@@ -1501,9 +1501,9 @@ LAN Access admin module by Augusto Bott
                             { title: 'Radius 服务', indent: 2, multi: [
                                 { name: 'wl'+u+'_radius_ipaddr', type: 'text', maxlen: 15, size: 17, value: eval('nvram["wl'+u+'_radius_ipaddr"]') },
                                 { name: 'wl'+u+'_radius_port', type: 'text', maxlen: 5, size: 7, prefix: ' : ', value: eval('nvram["wl'+u+'_radius_port"]') || '1812' } ] },
-                            { title: '密码', indent: 2, name: 'wl'+u+'_wep_bit', type: 'select', options: [['128','128-bits'],['64','64-bits']],
+                            { title: '加密', indent: 2, name: 'wl'+u+'_wep_bit', type: 'select', options: [['128','128-bits'],['64','64-bits']],
                                 value: eval('nvram["wl'+u+'_wep_bit"]') },
-                            { title: 'Passphrase', indent: 2, name: 'wl'+u+'_passphrase', type: 'text', maxlen: 16, size: 20,
+                            { title: '密码', indent: 2, name: 'wl'+u+'_passphrase', type: 'text', maxlen: 16, size: 20,
                                 suffix: ' <input type="button" id="_f_wl'+u+'_wep_gen" value="生成" onclick="generate_wep('+u+')"> <button class="btn" type="button" id="_f_wl'+u+'_wep_random" value="随机" onclick="random_wep('+u+')">Random</button>',
                                 value: eval('nvram["wl'+u+'_passphrase"]') }
                         );

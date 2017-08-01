@@ -149,7 +149,7 @@ No part of this file may be used without permission.
 				path = getPath();
 				if (((E('_cstats_stime').value * 1) <= 48) &&
 					((path == '*nvram') || (path == '/jffs/'))) {
-					if (!confirm('不建议对 NVRAM 或 JFFS2 进行频繁的存取，是否继续??')) return;
+					if (!confirm('不建议对 NVRAM 或 JFFS2 进行频繁的存取，是否继续?')) return;
 				}
 				if ((nvram.cstats_path != path) && (fom.cstats_path.value != path) && (path != '') && (path != '*nvram') &&
 					(path.substr(path.length - 1, 1) != '/')) {

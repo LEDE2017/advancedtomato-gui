@@ -167,8 +167,8 @@ No part of this file may be used without permission.
 					{ title: '记录 NTP 事件', indent: 2, name: 'f_log_ntp', type: 'checkbox', value: (nvram.log_events.indexOf('ntp') != -1) },
 					{ title: '记录定时事件', indent: 2, name: 'f_log_sched', type: 'checkbox', value: (nvram.log_events.indexOf('sched') != -1) },
 					{ title: '连接日志' },
-					{ title: '记录下行连接', indent: 2, name: 'log_in', type: 'select', options: [[0,'从不记录 (推荐)'],[1,'被防火墙阻止的'],[2,'被防火墙允许的'],[3,'两者都有']], value: nvram.log_in },
-					{ title: '记录上行连接', indent: 2, name: 'log_out', type: 'select', options: [[0,'从不记录 (推荐)'],[1,'被防火墙阻止的'],[2,'被防火墙允许的'],[3,'两者都有']], value: nvram.log_out },
+					{ title: '记录下行连接', indent: 2, name: 'log_in', type: 'select', options: [[0,'从不记录 (推荐)'],[1,'被防火墙阻止的'],[2,'被防火墙允许的'],[3,'两者都记录']], value: nvram.log_in },
+					{ title: '记录上行连接', indent: 2, name: 'log_out', type: 'select', options: [[0,'从不记录 (推荐)'],[1,'被防火墙阻止的'],[2,'被防火墙允许的'],[3,'两者都记录']], value: nvram.log_out },
 					{ title: '日志记录限制', indent: 2, name: 'log_limit', type: 'text', maxlen: 4, size: 5, value: nvram.log_limit, suffix: ' <small>(每分钟消息数 / 0 表示不限制)</small>' }
 				]);
 			</script>

@@ -153,7 +153,7 @@
                 <div class='section'>
                     <ul>
                         <li><b>Adblock</b> - 自动更新将在每天上午1:00启动</li>
-                        <li><b>调试模式</b> - 所有查询到的 dnsmasq 将被记录到系统日志</li>
+                        <li><b>调试模式</b> - 所有对 dnsmasq 的查询将被记录到系统日志</li>
                         <li><b>黑名单网址</b> - 正确的文件格式：0.0.0.0 domain.com 或 127.0.0.1 domain.com，每行一个域名</li>
                         <li><b>黑名单自定义</b> - 可选, 空格分隔：domain1.com domain2.com domain3.com</li>
                         <li><b>白名单</b> - 可选, 空格分隔：domain1.com domain2.com domain3.com</li>

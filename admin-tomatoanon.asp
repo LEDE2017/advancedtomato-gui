@@ -46,7 +46,7 @@ No part of this file may be used without permission.
 					TomatoAnon 脚本将向在线数据库发送有关您的路由器型号和已安装的 Tomato 版本的信息.
 					提交的信息是100％匿名的，只用于统计目的.
 					<b>此脚本不会收集或传输任何私人或个人信息（例如 MAC 地址，IP 地址等）!</b>
-					TomatoAnon 脚本是完全开放的，并且用 bash 编写。 每个人都可以自由地查看所收集并传输到数据库的信息..
+					TomatoAnon 脚本是完全开放的，并且用 bash 编写。 每个人都可以自由地查看所收集并传输到数据库的信息.
 				</p>
 
 				<p>收集的数据可以在 <a href="http://anon.groov.pl/" target="_blank"><b>TomatoAnon 统计</b></a> 页面查看.<br>

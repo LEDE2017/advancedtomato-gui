@@ -106,7 +106,7 @@ No part of this file may be used without permission.
 							{ title: '允许回应 ICMP Ping', name: 'f_icmp', type: 'checkbox', value: nvram.block_wan == '0' },
 							{ title: '每秒限制', name: 'f_icmp_limit', type: 'checkbox', value: nvram.block_wan_limit != '0' },
 							{ title: 'ICMP', indent: 2, name: 'f_icmp_limit_icmp', type: 'text', maxlen: 3, size: 3, suffix: ' <small> 每秒响应次数</small>', value: fixInt( nvram.block_wan_limit_icmp || 1, 1, 300, 5 ) },
-							{ title: '路由追踪', indent: 2, name: 'f_icmp_limit_traceroute', type: 'text', maxlen: 3, size: 3, suffix: ' <small> 每秒响应次数</small>', value: fixInt( nvram.block_wan_limit_tr || 5, 1, 300, 5 ) },
+							{ title: 'Traceroute', indent: 2, name: 'f_icmp_limit_traceroute', type: 'text', maxlen: 3, size: 3, suffix: ' <small> 每秒响应次数</small>', value: fixInt( nvram.block_wan_limit_tr || 5, 1, 300, 5 ) },
 							null,
 							{ title: '启用 SYN cookies', name: 'f_syncookies', type: 'checkbox', value: nvram.ne_syncookies != '0' },
 							{ title: '启用 DSCP Fix', name: 'f_DSCP_fix_enable', type: 'checkbox', value: nvram.DSCP_fix_enable != '0', suffix: ' <small>修复 Comcast 不正确的 DSCP</small>' },
@@ -122,8 +122,8 @@ No part of this file may be used without permission.
 			<script type="text/javascript">
 				$( '.section.natfirewall' ).forms(
 						[
-							{ title: 'NAT 回环', name: 'nf_loopback', type: 'select', options: [[0,'所有'],[1,'仅前转'],[2,'关闭']], value: fixInt( nvram.nf_loopback, 0, 2, 1 ) },
-							{ title: 'NAT 目标', name: 'ne_snat', type: 'select', options: [ [ 0, '地址伪装' ], [ 1, '源地址转换' ] ], value: nvram.ne_snat }
+							{ title: 'NAT 回环', name: 'nf_loopback', type: 'select', options: [[0,'所有'],[1,'仅转发'],[2,'关闭']], value: fixInt( nvram.nf_loopback, 0, 2, 1 ) },
+							{ title: 'NAT 目标', name: 'ne_snat', type: 'select', options: [ [ 0, 'MASQUERADE' ], [ 1, 'SNAT' ] ], value: nvram.ne_snat }
 						] );
 			</script>
 		</div>

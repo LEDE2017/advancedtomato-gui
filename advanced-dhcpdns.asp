@@ -128,15 +128,15 @@ No part of this file may be used without permission.
 					{ title: '防止 DNS-欺骗 攻击', name: 'f_dns_norebind', type: 'checkbox', value: nvram.dns_norebind == '1' },
 					{ title: '拦截 DNS 端口', name: 'f_dns_intcpt', type: 'checkbox', value: nvram.dns_intcpt == '1' },
 					{ title: 'WAN 被禁使用自定义网关', name: 'f_dhcpd_gwmode', type: 'checkbox', value: nvram.dhcpd_gwmode == '1' },
-					{ title: '忽略未知设备的DHCP请求', name: 'f_dhcpd_static_only', type: 'checkbox', value: nvram.dhcpd_static_only == '1' },
+					{ title: '忽略未知设备的 DHCP 请求', name: 'f_dhcpd_static_only', type: 'checkbox', value: nvram.dhcpd_static_only == '1' },
 					{ title: 'DHCP 租用的最大激活数', name: 'dhcpd_lmax', type: 'text', maxlen: 5, size: 8, value: nvram.dhcpd_lmax },
 					{ title: '静态租约时间', multi: [
 						{ name: 'f_dhcpd_sltsel', type: 'select', options: [[0,'正常的租约时间'],[-1,'不限制'],[1,'自定义']],
 							value: (nvram.dhcpd_slt < 1) ? nvram.dhcpd_slt : 1 },
 						{ name: 'f_dhcpd_slt', type: 'text', maxlen: 5, size: 8, prefix: '<span id="_dhcpd_sltman"> ', suffix: '分</span>',
 							value: (nvram.dhcpd_slt >= 1) ? nvram.dhcpd_slt : 3600 } ] },
-					{ title: '局域网 Announce IPv6 (SLAAC)', name: 'f_ipv6_radvd', type: 'checkbox', value: nvram.ipv6_radvd == '1' },
-					{ title: '局域网 Announce IPv6 (DHCP)', name: 'f_ipv6_dhcpd', type: 'checkbox', value: nvram.ipv6_dhcpd == '1' },
+					{ title: '局域网 IPv6 无状态地址自动配置 (SLAAC)', name: 'f_ipv6_radvd', type: 'checkbox', value: nvram.ipv6_radvd == '1' },
+					{ title: '局域网 IPv6 动态主机配置 (DHCP)', name: 'f_ipv6_dhcpd', type: 'checkbox', value: nvram.ipv6_dhcpd == '1' },
 					{ title: '禁止 dhcpv4 日志', name: 'f_dnsmasq_q4', type: 'checkbox', value: (nvram.dnsmasq_q & 1) },
 					{ title: '禁止 dhcpv6 日志', name: 'f_dnsmasq_q6', type: 'checkbox', value: (nvram.dnsmasq_q & 2) },
 					{ title: '禁止 RA 日志', name: 'f_dnsmasq_qr', type: 'checkbox', value: (nvram.dnsmasq_q & 4) },
@@ -165,7 +165,7 @@ No part of this file may be used without permission.
 				<ul>
 					<li><b>启用内置 DNS 服务器</b> - 允许 Dnsmasq 为你的 LAN 提供 DNS 服务.</li>
 					<li><b>使用 WAN 口获取的 DNS</b> - 从 WAN 口获取 DNS 添加到静态 DNS 服务器列表. (详见 <a href='basic-network.asp'>基础网络设置</a> 配置).</li>
-					<li><b>防止 DNS 欺骗攻击</b> - 将 DNS 绑定到 Dnsmasq.</li>
+					<li><b>防止 DNS 欺骗攻击</b> -在 Dnsmasq 上启用 DNS 重绑定保护.</li>
 f					<li><b>拦截 DNS 端口</b> - 将所有从 53 号端口发出的 DNS 请求包转发到此服务器. 目前只拦截 IPv4 的 DNS.</li>
 					<li><b>WAN 被禁用时使用自定义网关</b> - Dnsmasq 使用路由器的 IP 做为默认网关.</li>
 					<li><b>忽略未知设备的 DHCP 请求 (...)</b> - Dnsmasq 服务器将仅为 <a href='#basic-static.asp'>静态 DHCP/ARP/BW</a> 中的 MAC 地址提供 DHCP 服务,不在列表中的机器将无法获取 IP.</li>

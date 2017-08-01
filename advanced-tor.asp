@@ -156,7 +156,7 @@ No part of this file may be used without permission.
 				<h4>说明</h4>
 				<div class="section">
 					<ul>
-						<li><b>启用 TOR</b> - 耐心一点。启动Tor客户端可能需要几秒钟到几分钟。
+						<li><b>启用 TOR</b> - 请耐心等待. 启动 TOR 客户端可能需要数秒至数分钟的时间。
 						<li><b>选择 IP 地址</b> - 例如: 1.2.3.4,1.1.0/24,1.2.3.1-1.2.3.4
 						<li><b>所选端口</b> - 例如：一个端口（80），几个端口（80,443,8888），端口范围（80:88），混合（80,8000：9000,9999）
 						<li><span style="color: red;">警告!</span> 如果你的路由器只有 32MB RAM，你必须使用交换分区。

@@ -151,7 +151,7 @@
 					{ title: '文件系统', indent: 2, name: 'f_mmc_fs_type', type: 'select', options: [['ext2','ext2'],['ext3','ext3'],['vfat','vfat']], value: nvram.mmc_fs_type },
 					{ title: '挂载后执行', indent: 2, name: 'f_mmc_exec_mount', type: 'text', maxlen: 64, size: 34, value: nvram.mmc_exec_mount },
 					{ title: '在卸载之前执行', indent: 2, name: 'f_mmc_exec_umount', type: 'text', maxlen: 64, size: 34, value: nvram.mmc_exec_umount },
-					{ title: '总容量/可用容量 大小', indent: 2, text: (scaleSize(mmc.size) + ' / ' + scaleSize(mmc.free) + ' <small>(' + (mmc.free/mmc.size*100).toFixed(2) + '%)</small>'), hidden: !mmc.size },
+					{ title: '总容量/可用容量', indent: 2, text: (scaleSize(mmc.size) + ' / ' + scaleSize(mmc.free) + ' <small>(' + (mmc.free/mmc.size*100).toFixed(2) + '%)</small>'), hidden: !mmc.size },
 					null,
 					{ title: '卡信息', name: 'f_show_info', type: 'checkbox', value: 0, hidden: !mmcid.type },
 					{ title: '卡类型', indent: 2, rid: 'i1', text: mmcid.type },

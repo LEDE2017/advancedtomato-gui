@@ -5,7 +5,7 @@ http://www.polarcloud.com/tomato/
 
 For use with Tomato Firmware only.
 No part of this file may be used without permission.
---><title>连接追踪</title>
+--><title>连接追踪 / 包过滤</title>
 <content>
 	<script type="text/javascript">
 		//	<% nvram("at_update,tomatoanon_answer,ct_tcp_timeout,ct_udp_timeout,ct_timeout,ct_max,ct_hashsize,nf_l7in,nf_ttl,nf_sip,nf_rtsp,nf_pptp,nf_h323,nf_ftp"); %>
@@ -192,7 +192,7 @@ No part of this file may be used without permission.
 			if ((v = nvram.ct_tcp_timeout.match(/^(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/)) == null) {
 				v = [0,0,1200,120,60,120,120,10,60,30,0];
 			}
-			titles = ['-', '无', '已建立连接超时', 'SYN发送超时', 'SYN接收超时', 'FIN 等待超时', '时间等待超时', '关闭连接超时', '关闭等待超时', '最后响应超时', '侦听连接超时'];
+			titles = ['-', '无', '已建立连接超时', 'SYN发送超时', 'SYN接收超时', 'FIN等待超时', '时间等待超时', '关闭连接超时', '关闭等待超时', '最后响应超时', '侦听连接超时'];
 			f = [{ title: ' ', text: '<small>(秒)</small>' }];
 			for (i = 1; i < 11; ++i) {
 				f.push({ title: titles[i], name: ('f_tcp_' + (i - 1)),

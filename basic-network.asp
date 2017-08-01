@@ -691,7 +691,7 @@ No part of this file may be used without permission.
 			else {
 				s = s.toUpperCase().replace(/[^0-9A-F]/g, '');
 				if (s.length != e.maxLength) {
-					ferror.set(e, '无效的 WEP 密钥. 应该是 ' + e.maxLength + ' 16进制或者 ' + (e.maxLength >> 1) + ' ASCII  ASCII字符。', quiet);
+					ferror.set(e, '无效的 WEP 密钥. 应该是 ' + e.maxLength + ' 16进制或者 ' + (e.maxLength >> 1) + ' ASCII 字符。', quiet);
 					return 0;
 				}
 			}

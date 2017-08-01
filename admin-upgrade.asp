@@ -106,7 +106,7 @@ No part of this file may be used without permission.
 						<div class="col-sm-9">
 							<div id="reset-input">
 								<div class="checkbox c-checkbox"><label><input class="custom" type="checkbox" id="f_reset">
-									<span class="icon-check"></span> &nbsp; 刷写后，擦除 NVRAM 内存中的所有数据</label>
+									<span class="icon-check"></span> &nbsp; 升级固件后,清除 NVRAM 中的所有数据(彻底清除)</label>
 								</div>
 							</div>
 						</div>
@@ -129,7 +129,7 @@ No part of this file may be used without permission.
 					<div class="spinner spinner-large"></div><br /><br />
 					<b id="afu-time">0:00</b><br />
 					正在上传和刷新新固件，请稍候...<br />
-					<b>不要关闭 Web浏览器或路由器!</b>
+					<b>不要关闭 Web 浏览器或路由器!</b>
 				</div>
 			</div>
 		</form>
@@ -144,7 +144,7 @@ No part of this file may be used without permission.
 	</div>
 	<script type="text/javascript">
 		//	<% sysinfo(); %>
-		$('#version-table').append('<tr><td>可用容量:</td><td>&nbsp; ' + scaleSize(sysinfo.totalfreeram) + ' &nbsp; <small>(剩余内存空间必须大于固件文件尺寸)</small></td></tr>');
+		$('#version-table').append('<tr><td>剩余内存:</td><td>&nbsp; ' + scaleSize(sysinfo.totalfreeram) + ' &nbsp; <small>(剩余内存空间必须大于固件文件尺寸)</small></td></tr>');
 
 		if (nvram.jffs2_on != '0') {
 			E('jwarn').style.display = '';

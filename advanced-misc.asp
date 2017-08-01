@@ -65,7 +65,7 @@ No part of this file may be used without permission.
 						null,
 
 						/* CTF-BEGIN */
-						{ title: 'CTF (Cut-Through Forwarding)', name: 'f_ctf_disable', type: 'checkbox', value: nvram.ctf_disable != '1' },
+						{ title: 'CTF (直通转发)', name: 'f_ctf_disable', type: 'checkbox', value: nvram.ctf_disable != '1' },
 						null,
 						/* CTF-END */
 

@@ -959,7 +959,7 @@ No part of this file may be used without permission.
         <div style="display: none;" class="alert alert-warning" id='unknown_router'>
             <h5>未知端口映射!</h5>
             <a href='http://www.linksysinfo.org/index.php?threads/can-vlan-gui-port-order-be-corrected.70160/#post-247634/'>请按照这些说明进行更正.</a><br>
-            检查路由器 品牌/型号 (<% nv('t_model_name'); %>), 使用命令 "nvram show | grep ports" 查看端口号，并且检查路由器机身(上下左右找找).
+            检查路由器 品牌/型号 (<% nv('t_model_name'); %>), 使用命令 "nvram show | grep ports" 查看端口号，从路由器机身正面看去(端口号从左往右排列).
         </div>
 
         <div id="sesdiv" class="box" style="display:none">

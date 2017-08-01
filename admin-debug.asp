@@ -78,7 +78,7 @@ No part of this file may be used without permission.
 						{ title: '将缓存内存和缓冲区计算为可用内存', name: 'f_cafree', type: 'checkbox', value: nvram.t_cafree == '1' },
 						{ title: '在路由器连接中不显示 LAN', name: 'f_hidelr', type: 'checkbox', value: nvram.t_hidelr == '1' },
 						{ title: '控制台日志级别', name: 'console_loglevel', type: 'select', options: a, value: fixInt(nvram.console_loglevel, 1, 8, 1) },
-						{ title: '如果以下过程中死机，不重新启动', multi: [
+						{ title: '如果以下进程退出，不重新启动', multi: [
 							{ name: 'f_nr_crond', type: 'checkbox', suffix: ' crond<br>', value: (nvram.debug_norestart.indexOf('crond') != -1) },
 							{ name: 'f_nr_dnsmasq', type: 'checkbox', suffix: ' dnsmasq<br>', value: (nvram.debug_norestart.indexOf('dnsmasq') != -1) },
 							/* LINUX26-BEGIN */
@@ -91,13 +91,13 @@ No part of this file may be used without permission.
 				<hr>
 
 				&raquo; <a href="#clear-cookies.asp">清除 Cookies</a><br>
-				&raquo; <a href="javascript:nvramCommit()">保存更改到 NVRAM </a><br>
+				&raquo; <a href="javascript:nvramCommit()">保存更改至 NVRAM</a><br>
 				<br>
 
 				&raquo; <a href="/cfe/cfe.bin?_http_id=<% nv(http_id); %>">下载 CFE</a><br>
 				&raquo; <a href="/ipt/iptables.txt?_http_id=<% nv(http_id); %>">下载 IPv4 防火墙配置</a><br>
 				<!-- IPV6-BEGIN -->
-				&raquo; <a href="/ip6t/ip6tables.txt?_http_id=<% nv(http_id); %>">下载 IPv6防火墙配置</a><br>
+				&raquo; <a href="/ip6t/ip6tables.txt?_http_id=<% nv(http_id); %>">下载 IPv6 防火墙配置</a><br>
 				<!-- IPV6-END -->
 				&raquo; <a href="/logs/syslog.txt?_http_id=<% nv(http_id); %>">下载日志文件</a><br>
 				&raquo; <a href="/nvram/nvram.txt?_http_id=<% nv(http_id); %>">下载 NVRAM 配置</a>
