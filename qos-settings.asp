@@ -208,7 +208,7 @@ No part of this file may be used without permission.
 		</div>
 
 		<div class="box" data-box="qos-dsl-set">
-			<div class="heading">>DSL 设置(仅用于 DSL 线路)</div>
+			<div class="heading">DSL 设置(仅用于 DSL 线路)</div>
 			<div class="content qos-dsl"></div>
 			<script type="text/javascript">
 				$('.qos-dsl').forms([

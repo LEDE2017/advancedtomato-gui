@@ -269,7 +269,7 @@ No part of this file may be used without permission.
 				<script type="text/javascript">
 					$('#section-weblogin').forms([
 						{ title: '用户名', name: 'http_username', type: 'text', value: nvram.http_username, suffix: '&nbsp;<small>(留空表示“admin”)</small>' },
-						{ title: '允许 "root" 登录', name: 'f_http_root', type: 'checkbox', value: nvram.http_root == 1 },
+						{ title: '允许网页登陆为"管理员"', name: 'f_http_root', type: 'checkbox', value: nvram.http_root == 1 },
 						{ title: '请输入密码', name: 'set_password_1', type: 'password', value: '**********' },
 						{ title: '请再次输入密码', indent: 2, name: 'set_password_2', type: 'password', value: '**********' }
 					]);

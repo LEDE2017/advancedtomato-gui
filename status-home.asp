@@ -109,8 +109,8 @@
 				} else {
 
 					status = 'on';
-					speed  = etherstates[ $k ].replace( 'HD', 'M半双工' );
-					speed  = speed.replace( "FD", "M全双工" );
+					speed  = etherstates[ $k ].replace( 'HD', 'M<br>半双工' );
+					speed  = speed.replace( "FD", "M<br>全双工" );
 
 				}
 
@@ -305,7 +305,7 @@
 		</script>
 
 		<div class="box" id="ethernetPorts" data-box="home_ethports">
-			<div class="heading">以太网端口状态
+			<div class="heading">网络端口状态
 				<a class="ajaxload pull-right" data-toggle="tooltip" title="配置设置" href="#basic-network.asp"><i class="icon-system"></i></a>
 			</div>
 			<div class="content" id="sesdiv_lan-ports"></div>
@@ -357,7 +357,7 @@
 								s += '<b>br' + i + '</b> (LAN' + j + ') - ' + nvram['dhcpd' + j + '_startip'] + ' - ' + nvram['dhcpd' + j + '_endip'];
 							} else {
 								s += ((s.length>0)&&(s.charAt(s.length-1) != ' ')) ? '<br>' : '';
-								s += '<b>br' + i + '</b> (LAN' + j + ') - Disabled';
+								s += '<b>br' + i + '</b> (LAN' + j + ') - 禁用';
 							}
 							t += ((t.length>0)&&(t.charAt(t.length-1) != ' ')) ? '<br>' : '';
 							t += '<b>br' + i + '</b> (LAN' + j + ') - ' + nvram['lan' + j + '_ipaddr'] + '/' + numberOfBitsOnNetMask(nvram['lan' + j + '_netmask']);

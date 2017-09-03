@@ -284,7 +284,7 @@ No part of this file may be used without permission.
 								['custom','自定义'] ], value: nvram.bt_binary, suffix: ' <small>*</small> ' },
 							{ name: 'bt_binary_custom', type: 'text', maxlen: 40, size: 40, value: nvram.bt_binary_custom }
 						] },
-						{ title: '启用 Keep alive', name: 'f_bt_check', type: 'checkbox', value: nvram.bt_check == '1', suffix: ' <small>*</small>' },
+						{ title: '保持活动', name: 'f_bt_check', type: 'checkbox', value: nvram.bt_check == '1', suffix: ' <small>*</small>' },
 						{ title: '检查活动状态间隔', indent: 2, name: 'bt_check_time', type: 'text', maxlen: 5, size: 7, value: nvram.bt_check_time, suffix: ' <small>分(范围: 1 - 55; 默认: 15)</small>' },
 						{ title: '启动延时', name: 'bt_sleep', type: 'text', maxlen: 5, size: 7, value: nvram.bt_sleep, suffix: ' <small>秒 (范围: 1 - 60; 默认: 10)</small>' },
 						{ title: '监听端口', name: 'bt_port', type: 'text', maxlen: 5, size: 7, value: nvram.bt_port, suffix: ' <small>*</small>' },
@@ -296,7 +296,7 @@ No part of this file may be used without permission.
 				<ul>
 					<li><b>启用 torrent 客户端</b> - 注意! - 如果您的路由器只有 32MB 的 RAM, 则您需要开启 swap.
 					<li><b>Transmission 二进制文件路径</b> 包含 Transmission 二进制可执行程序文件等...的目录路径.
-					<li><b>Keep alive</b> - 如果启用，将以指定的间隔检查 Transmission 进程，并在崩溃后重新启动。
+					<li><b>保持活动</b> - 如果启用，将以指定的间隔检查 Transmission 进程，并在崩溃后重新启动。
 					<li><b>监听端口</b> - torrent 客户端使用的端口.确保此端口不被占用.
 				</ul>
 			</div>

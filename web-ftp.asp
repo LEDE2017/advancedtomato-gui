@@ -205,7 +205,7 @@ No part of this file may be used without permission.
 			<div class="heading">FTP 服务配置</div>
 			<div class="content">
 				<div id="ftpconf"></div>
-				<small style="color: red">注意: 尽量不要选择(WAN 和 LAN 都能访问)选项. 该选项允许 WAN 访问到路由器文件系统!</small>
+				<small style="color: red">注意: 尽量不要选择(WAN 和 LAN 都能访问)选项. 该选项允许从 WAN 访问路由器文件系统!</small>
 				<script type="text/javascript">
 					$('#ftpconf').forms([
 						{ title: '启用 FTP 服务', name: 'ftp_enable', type: 'select',

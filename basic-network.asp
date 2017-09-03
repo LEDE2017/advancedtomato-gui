@@ -1958,11 +1958,11 @@ No part of this file may be used without permission.
 					ckdst = nvram.mwan_ckdst.split( ',' );
 					$( '#wan-settings' ).forms([
 						{
-							title: 'WAN 端口数', name: 'mwan_num', type: 'select', options: [ [ '1', '1 WAN' ], [ '2', '2 WAN' ]
+							title: 'WAN 端口数量', name: 'mwan_num', type: 'select', options: [ [ '1', '1 WAN' ], [ '2', '2 WAN' ]
 							/* MULTIWAN-BEGIN */
 							, [ '3', '3 WAN' ], [ '4', '4 WAN' ]
 							/* MULTIWAN-END */
-						], value : nvram.mwan_num, suffix: ' <small>请配置 <a href="/#advanced-vlan.asp">VLAN</a> 首次</small>'
+						], value : nvram.mwan_num, suffix: ' <small>请先配置 <a href="/#advanced-vlan.asp">VLAN</a></small>'
 						},
 						{
 							title : '检查每个连接', name: 'mwan_cktime', type: 'select', options: [
@@ -1998,7 +1998,7 @@ No part of this file may be used without permission.
 					$( '#wan-settings' ).append( '<div id=\'sesdiv_wan' + u + '\'><br/><h5 id=\'wan' + u + '-title\'>WAN' + u + ' 设置</h5>' );
 					$( '#wan-settings' ).forms([
 						{
-							title: '类型', name: 'wan' + u + '_proto', type: 'select', options: [ [ 'dhcp', 'DHCP' ], [ 'pppoe', 'PPPoE' ], [ 'static', 'Static' ], [ 'pptp', 'PPTP' ], [ 'l2tp', 'L2TP' ],
+							title: '类型', name: 'wan' + u + '_proto', type: 'select', options: [ [ 'dhcp', 'DHCP' ], [ 'pppoe', 'PPPoE' ], [ 'static', '静态 IP' ], [ 'pptp', 'PPTP' ], [ 'l2tp', 'L2TP' ],
 							/* LINUX26-BEGIN */
 							/* USB-BEGIN */
 							[ 'ppp3g', '3G Modem' ],
@@ -2114,7 +2114,7 @@ No part of this file may be used without permission.
 		</div>
 
 		<div class="box" data-box="network-ethports">
-			<div class="heading">以太网端口状态-配置</div>
+			<div class="heading">网络端口状态-配置</div>
 			<div class="content eth-ports"></div>
 			<script type="text/javascript">
 				$('.content.eth-ports').forms([

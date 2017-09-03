@@ -139,7 +139,7 @@ No part of this file may be used without permission.
 	<div class="alert alert-error" style="display:none;" id="jwarn">
 		<h5>禁止升级!</h5>
 		升级将会覆盖当前使用的 JFFS 分区，升级前,
-		请备份 JFFS 分区的内容，并禁用它，然后重新启动路由器.
+		请备份 JFFS 分区的内容，并禁用 JFFS，然后重新启动路由器.
 		<a href="/#admin-jffs2.asp">关闭 &raquo;</a>
 	</div>
 	<script type="text/javascript">

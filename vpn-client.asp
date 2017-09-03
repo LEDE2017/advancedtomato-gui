@@ -471,7 +471,7 @@ No part of this file may be used without permission.
 				]);
 				htmlOut += ('</div>');
 				htmlOut += ('<div id=\''+t+'-status\'>');
-				htmlOut += ('<div id=\''+t+'-no-status\'><p>客户端未运行或无法读取的状态.</p></div>');
+				htmlOut += ('<div id=\''+t+'-no-status\'><p>客户端没有运行或无法获取状态.</p></div>');
 				htmlOut += ('<div id=\''+t+'-status-content\' style=\'display:none\' class=\'status-content\'>');
 				htmlOut += ('<div id=\''+t+'-status-header\' class=\'status-header\'><p>当前的数据 <span id=\''+t+'-status-time\'></span>.</p></div>');
 				htmlOut += ('<div id=\''+t+'-status-stats\'><div class=\'section-title\'>综合统计</div><table class=\'line-table\' id=\''+t+'-status-stats-table\'></table><br></div>');
@@ -487,7 +487,7 @@ No part of this file may be used without permission.
 		</script>
 
 		<button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
-		<button type="button" value="取消设置取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
+		<button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
 		<span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span>
 
 	</form>

@@ -42,8 +42,8 @@ No part of this file may be used without permission.
 		<div class="box">
 			<div class="heading">TomatoAnon 项目</div>
 			<div class="content">
-				<p>我想向您介绍一个我正在开发的新项目，名为 TomatoAnon。
-					TomatoAnon 脚本将向在线数据库发送有关您的路由器型号和已安装的 Tomato 版本的信息.
+				<p>我想向您介绍一个我正在开发的新项目，名为 TomatoAnon.
+					TomatoAnon 脚本将向在线数据库发送您的路由器型号和已安装的 Tomato 版本等信息.
 					提交的信息是100％匿名的，只用于统计目的.
 					<b>此脚本不会收集或传输任何私人或个人信息（例如 MAC 地址，IP 地址等）!</b>
 					TomatoAnon 脚本是完全开放的，并且用 bash 编写。 每个人都可以自由地查看所收集并传输到数据库的信息.
@@ -58,14 +58,14 @@ No part of this file may be used without permission.
 
 				<p>以下数据由 TomatoAnon 收集和传输:</p>
 				<ul>
-					<li>MD5SUM of WAN+LAN MAC addresses - this provides a unique identifier for each router, e.g: 1c1dbd4202d794251ec1acf1211bb2c8</li>
-					<li>Model of router, e.g: Asus RT-N66U</li>
-					<li>Installed version of Tomato, e.g: 102 K26 USB</li>
-					<li>Build Type, e.g: Mega-VPN-64K</li>
-					<li>Country, e.g: POLAND</li>
-					<li>ISO Country Code, e.g: PL</li>
-					<li>Router uptime, e.g: 3 days</li>
-					<li>That`s it!!</li>
+					<li>WAN+LAN MAC 地址的 MD5SUM - 用来区分路由器. 如: 1c1dbd4202d794251ec1acf1211bb2c8</li>
+					<li>路由器型号. 如: Asus RT-N66U</li>
+					<li>当前安装的 Tomato 版本. 如: 102 K26 USB</li>
+					<li>编译类型. 如: Mega-VPN-64K</li>
+					<li>国家, 如: POLAND</li>
+					<li>ISO 国家代码, 如: PL</li>
+					<li>路由器开机时间. 如: 3 天</li>
+					<li>这就是全部的数据了!!</li>
 				</ul>
 
 				<p>感谢您的阅读，请做出正确的选择来帮助这个项目.</p><br />

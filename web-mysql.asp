@@ -189,12 +189,12 @@ No part of this file may be used without permission.
 						['custom','自定义'] ], value: nvram.mysql_binary, suffix: ' <small>*</small> ' },
 					{ name: 'mysql_binary_custom', type: 'text', maxlen: 40, size: 40, value: nvram.mysql_binary_custom , suffix: ' <small>不包括 "/mysqld"</small>' }
 				] },
-				{ title: 'Keep alive', name: 'f_mysql_check', type: 'checkbox', value: nvram.mysql_check == 1, suffix: ' <small>*</small>' },
-				{ title: 'Check alive every', indent: 2, name: 'mysql_check_time', type: 'text', maxlen: 5, size: 7, value: nvram.mysql_check_time, suffix: ' <small>分 (范围: 1 - 55; 默认: 1)</small>' },
+				{ title: '保持连接', name: 'f_mysql_check', type: 'checkbox', value: nvram.mysql_check == 1, suffix: ' <small>*</small>' },
+				{ title: '检查连接间隔', indent: 2, name: 'mysql_check_time', type: 'text', maxlen: 5, size: 7, value: nvram.mysql_check_time, suffix: ' <small>分 (范围: 1 - 55; 默认: 1)</small>' },
 				{ title: '延迟启动', name: 'mysql_sleep', type: 'text', maxlen: 5, size: 7, value: nvram.mysql_sleep, suffix: ' <small>秒 (范围: 1 - 60; 默认: 2)</small>' },
-				{ title: 'MySQL 监听 端口', name: 'mysql_port', type: 'text', maxlen: 5, size: 7, value: nvram.mysql_port, suffix: ' <small> 默认: 3306</small>' },
-				{ title: '允许 Anyhost 访问', name: 'f_mysql_allow_anyhost', type: 'checkbox', value: nvram.mysql_allow_anyhost == 1, suffix: ' <small>允许任何主机访问数据库服务器.</small>' },
-				{ title: '重置 priv. 表', name: 'f_mysql_init_priv', type: 'checkbox', value: nvram.mysql_init_priv== 1, suffix: ' <small>如果选中，特权表将被强制通过 mysql_install_db 重新初始化.</small>' },
+				{ title: 'MySQL 监听端口', name: 'mysql_port', type: 'text', maxlen: 5, size: 7, value: nvram.mysql_port, suffix: ' <small> 默认: 3306</small>' },
+				{ title: '允许任何主机连接', name: 'f_mysql_allow_anyhost', type: 'checkbox', value: nvram.mysql_allow_anyhost == 1, suffix: ' <small>允许任何主机访问数据库服务器.</small>' },
+				{ title: '重置权限表', name: 'f_mysql_init_priv', type: 'checkbox', value: nvram.mysql_init_priv== 1, suffix: ' <small>如果选中，特权表将被强制通过 mysql_install_db 重新初始化.</small>' },
 				{ title: '重置 root 密码', name: 'f_mysql_init_rootpass', type: 'checkbox', value: nvram.mysql_init_rootpass == 1, suffix: ' <small>如果选中，root密码将被强制重新初始化.</small>' },
 				{ title: 'root 用户名', name: 'mysql_username', type: 'text', maxlen: 32, size: 16, value: nvram.mysql_username, suffix: ' <small>MSQL 管理员用户名.(默认: root)</small>' },
 				{ title: 'root 密码', name: 'mysql_passwd', type: 'password', maxlen: 32, size: 16, peekaboo: 1, value: nvram.mysql_passwd, suffix: ' <small>不能为空.(默认: admin)</small>' },
@@ -202,7 +202,7 @@ No part of this file may be used without permission.
 					{ name: 'f_mysql_usb_enable', type: 'checkbox', value: nvram.mysql_usb_enable == 1, suffix: '  ' },
 					{ name: 'mysql_dlroot', type: 'select', options: usb_disk_list, value: nvram.mysql_dlroot, suffix: ' '} ] },
 				{ title: '数据库目录', indent: 2, name: 'mysql_datadir', type: 'text', maxlen: 50, size: 40, value: nvram.mysql_datadir, suffix: ' <small>已挂载分区下的目录名称.</small>' },
-				{ title: 'Tmp 目录', indent: 2, name: 'mysql_tmpdir', type: 'text', maxlen: 50, size: 40, value: nvram.mysql_tmpdir, suffix: ' <small>已挂载分区下的目录名称.</small>' }
+				{ title: '临时目录', indent: 2, name: 'mysql_tmpdir', type: 'text', maxlen: 50, size: 40, value: nvram.mysql_tmpdir, suffix: ' <small>已挂载分区下的目录名称.</small>' }
 			]);
 		</script>
 

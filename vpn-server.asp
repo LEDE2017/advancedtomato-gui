@@ -19,7 +19,7 @@ No part of this file may be used without permission.
 		function UsersGrid() {return this;}
 		UsersGrid.prototype = new TomatoGrid;
 
-		tabs = [['server1', 'VPN 服务端 1 <i class="icon-tools"></i>'],['server2', 'VPN 服务端 2 <i class="icon-tools"></i>']];
+		tabs = [['server1', 'VPN 服务器 1 <i class="icon-tools"></i>'],['server2', 'VPN 服务器 2 <i class="icon-tools"></i>']];
 		sections = [['basic', '<i class="icon-system"></i> 基本设置'],['advanced', '<i class="icon-shield"></i> 高级设置'],['keys','<i class="icon-lock"></i> 密钥设置'],['status','<i class="icon-info"></i> 运行状态']];
 		ccdTables = [];
 		usersTables = [];
@@ -557,7 +557,7 @@ No part of this file may be used without permission.
 					]);
 					htmlOut += '</div>';
 					htmlOut += '<div id=\''+t+'-status\'>';
-					htmlOut += '<div id=\''+t+'-no-status\'><p>服务没有运行或无法读取的状态.</p></div>';
+					htmlOut += '<div id=\''+t+'-no-status\'><p>服务器没有运行或无法获取状态.</p></div>';
 					htmlOut += '<div id=\''+t+'-status-content\' style=\'display:none\' class=\'status-content\'>';
 					htmlOut += '<div id=\''+t+'-status-header\' class=\'status-header\'><p>当前的数据 <span id=\''+t+'-status-time\'></span>.</p></div>';
 					htmlOut += '<div id=\''+t+'-status-clients\'><div class=\'section-title\'>客户端列表</div><table class=\'line-table\' id=\''+t+'-status-clients-table\'></table><br></div>';
