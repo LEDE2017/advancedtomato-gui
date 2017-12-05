@@ -86,8 +86,7 @@ No part of this file may be used without permission.
 		<div class="alert alert-warning icon">
 			<h5>注意!</h5>下载过程中文件可能损坏，为避免出现问题，请验证 MD5 校验 (<a target="_blank" href="http://en.wikipedia.org/wiki/Checksum">阅读更多</a>) AdvancedTomato 固件，然后再尝试刷机。
 			<a class="close"><i class="icon-cancel"></i></a>
-		</div>
-
+			</div>		
 		<form name="form_upgrade" method="post" action="upgrade.cgi" encType="multipart/form-data">
 
 			<div class="box">

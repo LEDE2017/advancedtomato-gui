@@ -166,7 +166,7 @@ No part of this file may be used without permission.
 					<li><b>启用内置 DNS 服务器</b> - 允许 Dnsmasq 为你的 LAN 提供 DNS 服务.</li>
 					<li><b>使用 WAN 口获取的 DNS</b> - 从 WAN 口获取 DNS 添加到静态 DNS 服务器列表. (详见 <a href='basic-network.asp'>基础网络设置</a> 配置).</li>
 					<li><b>防止 DNS 欺骗攻击</b> -在 Dnsmasq 上启用 DNS 重绑定保护.</li>
-f					<li><b>拦截 DNS 端口</b> - 将所有从 53 号端口发出的 DNS 请求包转发到此服务器. 目前只拦截 IPv4 的 DNS.</li>
+					f					<li><b>拦截 DNS 端口</b> - 将所有从 53 号端口发出的 DNS 请求包转发到此服务器. 目前只拦截 IPv4 的 DNS.</li>
 					<li><b>WAN 被禁用时使用自定义网关</b> - Dnsmasq 使用路由器的 IP 做为默认网关.</li>
 					<li><b>忽略未知设备的 DHCP 请求 (...)</b> - Dnsmasq 服务器将仅为 <a href='#basic-static.asp'>静态 DHCP/ARP/BW</a> 中的 MAC 地址提供 DHCP 服务,不在列表中的机器将无法获取 IP.</li>
 					<li><b>DHCP 租用的最大激活数 </b> - 最多允许的 DHCP 客户端数量.</li>

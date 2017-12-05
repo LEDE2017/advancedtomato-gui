@@ -1020,15 +1020,9 @@ function _v_iptaddr( e, quiet, multi, ipv4, ipv6 ) {
     if ( multi ) {
         if ( v.length > multi ) {
             ferror.set( e, '地址过多', quiet );
-        }
-    }
-    else {
-        if ( v.length > 1 ) {
-            ferror.set( e, '域名或 IP 地址无效', quiet );
-            return 0;
-        }
-    }
-
+            }        }    else {
+    if ( v.length > 1 ) {        ferror.set( e, '域名或 IP 地址无效', quiet );            return 0;
+            }        }    
     for ( i = 0; i < v.length; ++i ) {
         if ( (t = _v_domain( e, v[ i ], 1 )) == null ) {
             /* IPV6-BEGIN */

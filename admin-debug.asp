@@ -60,12 +60,10 @@ No part of this file may be used without permission.
 		<div class="alert alert-warning icon">
 			<h5>警告!</h5> NVRAM 导出的配置文本文件中，可能包含此路由器 无线加密秘钥 和 用户名/密码，ISP 和 DDNS。请
 			检查 &amp; 并编辑此文件后再共享给其他人。
-		</div>
+			</div>					<div class="box">
 
-		<div class="box">
-			<div class="heading">调试模式设置 & 信息</div>
-			<div class="content">
-
+		<div class="heading">调试模式设置 & 信息</div>			<div class="content">
+			
 				<div id="debug"></div>
 				<script type="text/javascript">
 					a = [];

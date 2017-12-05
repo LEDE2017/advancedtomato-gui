@@ -275,16 +275,10 @@ No part of this file may be used without permission.
 						<li>启用此功能之前，请检查您的 <a class="ajaxload" href="basic-network.asp">LAN 设置</a> 并确保 任何/所有 LAN 网桥上的网络掩码已正确配置(如： 至少设置16位的网络掩码或“255.255.0.0”).</li>
 						<li>虽然技术上支持，但实际上并不建议使用 大于/等于 C 类网络的子网（即，至少设置24位的网络掩码或“255.255.255.0”）启用 IP流量监控。.</li>
 						<li>IP 流量监控保持跟踪LAN 接口/子网 <i>流入/流出</i> 或 <i>发送/接收</i> 数据的 IP 地址.</li>
-					</ul>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
-	<button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
-	<span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span><br /><br />
+						</ul>						</div>												</div>					</div>				</div>
+			<button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>		<button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>	<span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span><br /><br />
 
 	<script type="text/javascript">init(); verifyFields(null, 1);</script>
-</content>
+	</content>
+	
+	

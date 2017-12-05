@@ -180,20 +180,9 @@ No part of this file may be used without permission.
 					<li><b> 允许端口</b> - 只允许表外端口通过.<br>
 					若要设置多个端口, 请以空格隔开.<br>
 					<li><b> 允许直接访问的页面</b> - 设置的这些URL可以直接访问, 而不触发通告功能. 多个页面请以空格隔开. 例如：http://www.google.com http://www.google.es<br>
-					<li><b> MAC地址白名单</b> - 设置的MAC地址将允许直接访问网络, 而不触发通告功能,多个MAC地址请以空格隔开.  例如：11:22:33:44:55:66 11:22:33:44:55:67<br>
-					<li><b> 自定义通告文件目录</b> - 你可以上传自已的通告页面, 默认通告页面将被覆盖.<br>
-					<span style="color:red">
-						注意:如果登录超时,客户机需要重新进入通告页面以获得新的租约期.另外,超时并不会有通知,客户机可能已经无法访问互联网,你可以将租约期时间设置长一点来解决这个问题.
-					</span>
-				</ul>
-			</div>
-
-		</div>
-	</div>
+						<li><b> MAC地址白名单</b> - 设置的MAC地址将允许直接访问网络, 而不触发通告功能,多个MAC地址请以空格隔开.  例如：11:22:33:44:55:66 11:22:33:44:55:67<br>					<li><b> 自定义通告文件目录</b> - 你可以上传自已的通告页面, 默认通告页面将被覆盖.<br>
+				<span style="color:red">			注意:如果登录超时,客户机需要重新进入通告页面以获得新的租约期.另外,超时并不会有通知,客户机可能已经无法访问互联网,你可以将租约期时间设置长一点来解决这个问题.
+		</span>	</ul>
+	</div>		</div>	</div>
 
 	<button type="button" value="保存设置" id="save-button" onclick="save()" class="btn btn-primary">保存设置 <i class="icon-check"></i></button>
-	<button type="button" value="取消设置" id="cancel-button" onclick="javascript:reloadPage();" class="btn">取消设置 <i class="icon-cancel"></i></button>
-	<span id="footer-msg" class="alert alert-warning" style="visibility: hidden;"></span><br /><br />
-	<script type="text/javascript">verifyFields(null, 1);</script>
-
-</content>
