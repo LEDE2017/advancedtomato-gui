@@ -51,7 +51,7 @@ No part of this file may be used without permission.
 			/* LINUX26-END */
 		];
 
-		var dowNames = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+		var dowNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 		//
 
