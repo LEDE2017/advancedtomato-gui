@@ -30,7 +30,7 @@ No part of this file may be used without permission.
 		// {enable}|{begin_mins}|{end_mins}|{dow}|{comp[<comp]}|{rules<rules[...]>}|{http[ ...]}|{http_file}|{desc}
 		//	<% rrule(); %>
 		if ((rule = rrule.match(/^(\d+)\|(-?\d+)\|(-?\d+)\|(\d+)\|(.*?)\|(.*?)\|([^|]*?)\|(\d+)\|(.*)$/m)) == null) {
-			rule = ['', 1, 1380, 240, 31, '', '', '', 0, '新规则 ' + (rruleN + 1)];
+			rule = ['', 1, 1380, 240, 31, '', '', '', 0, 'New Rule ' + (rruleN + 1)];
 		}
 		rule[2] *= 1;
 		rule[3] *= 1;
